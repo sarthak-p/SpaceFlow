@@ -1,0 +1,41 @@
+<body>
+
+    <h2>Create a Team</h2>
+    <button routerLink="/teams">Back</button>
+    <div class="form-container">
+    <form action="#" method="post">
+
+      <div class="form-entry">
+        <label for="title">Team Name:</label><br>
+        <input type="text" id="title" name="title"><br>
+      </div>
+
+      <div class="form-entry">
+        <label for="message">Description:</label><br>
+        <input type="text" id="message" name="message"><br>
+      </div>
+
+      <div class="form-entry">
+      <select #dropdown (change)="onDropdownChange(dropdown.value)">
+        <option value="">Select an option</option>
+        <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+      </select>
+      </div>
+      
+      <div class="form-entry">
+      <div id="addname-container">
+        <div *ngFor="let entry of entries" class="addedname">
+          <p>{{ entry }}</p>
+          <button (click)="removeEntry(entry)">X</button>
+        </div>
+      </div>
+      </div>
+
+      <div class="form-entry">
+        <input type="submit" value="Submit">
+      </div>
+
+    </form>
+    </div>
+    
+</body>

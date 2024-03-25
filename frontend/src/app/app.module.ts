@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TeamsComponent } from './teams/teams.component';
+import { CreateAnnouncementComponent } from './create-announcement/create-announcement.component';
+import { CreateTeamComponent } from './create-team/create-team.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TeamsComponent
+    TeamsComponent,
+    CreateAnnouncementComponent,
+    CreateTeamComponent
   ],
   imports: [
     BrowserModule,
