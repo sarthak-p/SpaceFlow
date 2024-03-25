@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { TeamsComponent } from './teams/teams.component';
 import { CreateAnnouncementComponent } from './create-announcement/create-announcement.component';
@@ -9,11 +10,14 @@ const routes: Routes = [
   { path: "", component: HomeComponent},
   { path: "teams", component: TeamsComponent},
   { path: "create-announcement", component: CreateAnnouncementComponent},
-  { path: "create-team", component: CreateTeamComponent}
-]
+  { path: "create-team", component: CreateTeamComponent},
+  { path: 'login', component: LoginComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+}
