@@ -1,6 +1,10 @@
 package com.cooksys.groupfinal.controllers;
 
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +28,10 @@ public class UserController {
     public FullUserDto login(@RequestBody CredentialsDto credentialsDto) {
         return userService.login(credentialsDto);
     }
+	
+	@GetMapping
+	Set<FullUserDto> getAllUsers(){
+		return userService.getAllUsers();
+	}
 
 }

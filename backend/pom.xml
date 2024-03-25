@@ -14,7 +14,7 @@
 	<name>group-final</name>
 	<description>Cook Systems Group Final Project Backend</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
 	</properties>
 	<dependencies>
@@ -82,7 +82,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>${lombok.version}</version>
+							<version>1.18.30</version>
 						</path>
 						<dependency>
 							<groupId>org.projectlombok</groupId>
