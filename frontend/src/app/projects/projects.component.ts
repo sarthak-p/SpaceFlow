@@ -8,7 +8,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectsComponent {
 
-  team_number: number = 0;
   projects: { name: string, desc: string, active: boolean, id: number}[] = [];
 
   teamId: string = "";
