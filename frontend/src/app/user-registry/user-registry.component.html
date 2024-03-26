@@ -1,52 +1,42 @@
 <div class="user-registry">
-    <mat-toolbar color="primary">
+    <header class="toolbar"
+        style="background-color: #3f51b5; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
         <span>ACTING AS ADMIN</span>
-        <span class="toolbar-spacer"></span>
         <div>
-            <button mat-button>Home</button>
-            <button mat-button>Company</button>
-            <button mat-button>Teams</button>
-            <button mat-button>Users</button>
-            <button mat-button>Logout</button>
+            <button>Home</button>
+            <button>Company</button>
+            <button>Teams</button>
+            <button>Users</button>
+            <button>Logout</button>
         </div>
-    </mat-toolbar>
+    </header>
 
-    <mat-card>
-        <mat-card-title>User Registry</mat-card-title>
-        <mat-card-subtitle>A general view of all your members in your organization</mat-card-subtitle>
-        <table mat-table [dataSource]="users" class="mat-elevation-z8">
-
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let user"> {{user.name}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> Email </th>
-                <td mat-cell *matCellDef="let user"> {{user.email}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="active">
-                <th mat-header-cell *matHeaderCellDef> Active </th>
-                <td mat-cell *matCellDef="let user"> {{user.active}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="admin">
-                <th mat-header-cell *matHeaderCellDef> Admin </th>
-                <td mat-cell *matCellDef="let user"> {{user.admin}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let user"> {{user.status}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <section class="card">
+        <h2>User Registry</h2>
+        <p>A general view of all your members in your organization</p>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                    <th>Admin</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.active}}</td>
+                    <td>{{user.admin}}</td>
+                    <td>{{user.status}}</td>
+                </tr>
+            </tbody>
         </table>
-    </mat-card>
+    </section>
 
-    <button mat-fab color="accent" class="add-user-button">
-        <mat-icon>add</mat-icon>
+    <button class="add-user-button">
+        <span>Add</span>
     </button>
 </div>
