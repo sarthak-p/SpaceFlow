@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import com.cooksys.groupfinal.dtos.BasicUserDto;
 import com.cooksys.groupfinal.dtos.CredentialsDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
+import com.cooksys.groupfinal.dtos.UserRequestDto;
 import com.cooksys.groupfinal.entities.Credentials;
+import com.cooksys.groupfinal.entities.Profile;
 import com.cooksys.groupfinal.entities.User;
 import com.cooksys.groupfinal.exceptions.BadRequestException;
 import com.cooksys.groupfinal.exceptions.NotAuthorizedException;
@@ -65,6 +67,29 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Set<BasicUserDto> getAllUsersBasic() {
 		return basicUserMapper.entitiesToBasicUserDtos(userRepository.findAllByActiveTrue());
+	}
+
+	@Override
+	public FullUserDto createUser(UserRequestDto userRequestDto) {
+		User user = fullUserMapper.requestDtoToEntity(userRequestDto);
+		
+		Credentials credentials = user.getCredentials();
+		
+		if(credentials.getUsername() == null || credentials.getPassword() == null) {
+			throw new BadRequestException("Missing credentials");
+		}
+		
+		if(userRepository.findByCredentialsUsernameAndActiveTrue(credentials.getUsername()) != null) {
+			throw new BadRequestException("Username taken");
+		}
+		
+		Profile profile = user.getProfile();
+		
+		if(profile.getEmail() == null) {
+			throw new BadRequestException("Email must be provided");
+		}
+		
+		return fullUserMapper.entityToFullUserDto(userRepository.saveAndFlush(user));
 	}
 	
 	
