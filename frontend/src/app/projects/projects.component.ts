@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -10,7 +11,9 @@ export class ProjectsComponent {
   team_number: number = 0;
   projects: { name: string, desc: string, active: boolean, id: number}[] = [];
 
-  constructor() {
+  teamId: string = "";
+
+  constructor(private route: ActivatedRoute) {
     this.projects = [
       {
         name: 'Project 1',
@@ -25,6 +28,13 @@ export class ProjectsComponent {
         id: 2
       }
     ];
+
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.teamId = params['id'];
+    });
   }
 
 }
