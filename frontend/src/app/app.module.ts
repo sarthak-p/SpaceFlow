@@ -10,6 +10,7 @@ import { CreateTeamComponent } from './create-team/create-team.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SelectCompanyComponent } from './select-company/select-company.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     TeamsComponent,
     CreateAnnouncementComponent,
     CreateTeamComponent,
-    LoginComponent
+    LoginComponent,
+    SelectCompanyComponent
   ],
   imports: [
     BrowserModule,
