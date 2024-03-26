@@ -7,4 +7,23 @@ import { Component } from '@angular/core';
 })
 export class TeamsComponent {
 
+  teams: { teamname: string, numprojects: string, desc: string, members: string[] }[] = [];
+
+  constructor() {
+    this.teams = [
+      {
+        teamname: "Team Blue",
+        numprojects: "4",
+        desc: "Four score and seven years ago...",
+        members: ["Billy", "Bobby", "Kenny"]
+      },
+      {
+        teamname: "Team Red",
+        numprojects: "2",
+        desc: "The bee, of course, flys anyway...",
+        members: ["Kurt", "Burt", "Blart"]
+      }
+    ];
+  }
+
 }
