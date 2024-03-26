@@ -13,32 +13,15 @@
   <h2>Announcements</h2>
   <button routerLink="/create-announcement">Create Announcement</button>
 
-  <div class="announcement-container">
-      <div class="announcement">
-          <h2>Title here</h2>
-          <h3>Author here</h3>
-          <h4>Date here</h4>
-          <p>Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext
-          </p>
-      </div>
-  
-      <div class="announcement">
-          <h2>Title here</h2>
-          <h3>Author here</h3>
-          <h4>Date here</h4>
-          <p>Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext
-          </p>
-      </div>
-
-      <div class="announcement">
-          <h2>Title here</h2>
-          <h3>Author here</h3>
-          <h4>Date here</h4>
-          <p>Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext Bodytext
-          </p>
-      </div>
-      
+  <div class="announcement-container" *ngFor="let article of articles">
+    <div class="announcement">
+    <h2>{{ article.title }}</h2>
+    <h3>Author: {{ article.author }}</h3>
+    <h4>Date: {{ article.date }}</h4>
+    <p>{{ article.body }}</p>
+    </div>
   </div>
+    
   
   
   
