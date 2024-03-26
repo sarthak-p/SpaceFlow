@@ -18,5 +18,7 @@ public interface UserService {
 
 	FullUserDto createUser(UserRequestDto userRequestDto);
 
+	FullUserDto deleteUser(String username);
+
    
 }

@@ -75,21 +75,43 @@ public class UserServiceImpl implements UserService {
 		
 		Credentials credentials = user.getCredentials();
 		
+		if(credentials == null) {
+			throw new BadRequestException("Missing credentials");
+		}
+		
 		if(credentials.getUsername() == null || credentials.getPassword() == null) {
 			throw new BadRequestException("Missing credentials");
 		}
 		
-		if(userRepository.findByCredentialsUsernameAndActiveTrue(credentials.getUsername()) != null) {
+		if(userRepository.existsByCredentialsUsername(credentials.getUsername())) {
 			throw new BadRequestException("Username taken");
 		}
 		
 		Profile profile = user.getProfile();
+		
+		if(profile == null) {
+			throw new BadRequestException("Email must be provided");
+		}
 		
 		if(profile.getEmail() == null) {
 			throw new BadRequestException("Email must be provided");
 		}
 		
 		return fullUserMapper.entityToFullUserDto(userRepository.saveAndFlush(user));
+	}
+
+	@Override
+	public FullUserDto deleteUser(String username) {
+		if(!userRepository.existsByCredentialsUsername(username)) {
+			throw new BadRequestException("Cannot delete user because user does not exist");
+		}
+		
+		userRepository.findByCredentialsUsernameAndActiveTrue(username).get().setActive(false);
+		
+		User userToDelete = userRepository.findByCredentialsUsernameAndActiveTrue(username).get();
+		
+		
+		return fullUserMapper.entityToFullUserDto(userToDelete);
 	}
 	
 	

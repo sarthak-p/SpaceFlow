@@ -15,6 +15,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	Optional<User> findByCredentialsUsernameAndActiveTrue(String username);
 	
 	Set<User> findAllByActiveTrue();
+	
+	boolean existsByCredentialsUsername(String username);
 
 
 }
