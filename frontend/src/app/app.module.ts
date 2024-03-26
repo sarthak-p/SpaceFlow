@@ -11,6 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SelectCompanyComponent } from './select-company/select-company.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { SelectCompanyComponent } from './select-company/select-company.componen
     CreateAnnouncementComponent,
     CreateTeamComponent,
     LoginComponent,
-    SelectCompanyComponent
+    SelectCompanyComponent,
+    ProjectsComponent,
+    CreateProjectComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,9 @@ import { TeamsComponent } from './teams/teams.component';
 import { CreateAnnouncementComponent } from './create-announcement/create-announcement.component';
 import { CreateTeamComponent } from './create-team/create-team.component';
 import { SelectCompanyComponent } from './select-company/select-company.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -13,7 +16,11 @@ const routes: Routes = [
   { path: "create-announcement", component: CreateAnnouncementComponent},
   { path: "create-team", component: CreateTeamComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'select-company', component: SelectCompanyComponent }
+  { path: 'select-company', component: SelectCompanyComponent },
+  { path: 'projects', component: ProjectsComponent },
+  { path: 'create-project', component: CreateProjectComponent },
+  { path: 'edit-project', component: EditProjectComponent },
+  { path: 'edit-project/:id', component: EditProjectComponent }
 ];
 
 @NgModule({

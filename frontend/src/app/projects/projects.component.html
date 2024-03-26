@@ -1,0 +1,28 @@
+
+<body>
+    <div class="navbar">
+        <a routerLink="/">Home</a>
+        <a routerLink="/company">Company</a>
+        <a routerLink="/teams">Teams</a>
+        <a routerLink="/users">Users</a>
+        <a routerLink="/logout">Logout</a>
+    </div>
+  
+    <h1 class="text-center">Projects for Team {{team_number}}</h1>
+  
+    <button routerLink="/create-project">Create Project</button>
+  
+    <div class="announcement-container" *ngFor="let project of projects">
+      <div class="announcement">
+        <h2>{{ project.name }}</h2>
+        <h3>Desc: {{ project.desc }}</h3>
+        <h4>Active: {{ project.active }}</h4>
+        <button [routerLink]="['/edit-project', project.id]">Edit Project</button>
+      </div>
+    </div>
+      
+    
+    
+    
+  </body>
+  
