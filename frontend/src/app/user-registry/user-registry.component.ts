@@ -10,6 +10,7 @@ import { UserService } from '../user.service';
 export class UserRegistryComponent {
   users: User[] = [];
   displayedColumns: string[] = ['name', 'email', 'active', 'admin', 'status'];
+  showAddUserOverlay = false;
 
   constructor(private userService: UserService) {}
 
@@ -22,6 +23,10 @@ export class UserRegistryComponent {
       console.error(error);
     }
   );
+  }
+
+  toggleOverlay(): void {
+    this.showAddUserOverlay = !this.showAddUserOverlay;
   }
 }
 
