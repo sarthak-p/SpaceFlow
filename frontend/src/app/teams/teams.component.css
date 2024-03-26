@@ -2,38 +2,39 @@
 body, html {
     margin: 0;
     min-height: 100vh;
-    background-color: #0F0F0F;
-    
+    background-color: #c8baff;
+    border-left: 15px solid #a6a6a6; 
+    border-right: 15px solid #a6a6a6; 
+    border-bottom: 15px solid #a6a6a6; 
 }
 
 button {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
     padding: 5px 10px;
-    background-color: #1B4242;
-    color: #9EC8B9;
+    background-color: #007bff;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    border: 1px solid #9EC8B9;
 }
 
 button:hover {
-    background-color: #5C8374;
+    background-color: #0056b3;
 }
 
 h1 {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     margin: 25px;
 }
 
 h2 {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     margin: 20px;
 }
 
 p {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
 }
 
@@ -43,17 +44,17 @@ p {
 
 .navbar {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end; /* Align items to the right */
     padding: 5px; 
-    background-color: #1B4242; 
+    background-color: #a6a6a6; 
 }
 
 .navbar a {
     padding: 8px 12px; 
     margin-left: 10px; 
-    text-decoration: none; 
-    color: #9EC8B9; 
-    font-family: Arial, sans-serif;
+    text-decoration: none; /* Remove underline */
+    color: #333; 
+    font-family: Verdana, Geneva, sans-serif;
     border: 1px solid transparent; 
 }
 
@@ -96,17 +97,17 @@ p {
 }
 
 .announcement h1 {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     margin: 0px;
 }
 
 .announcement h2 {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     margin: 0px;
 }
 
 .announcement p {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
 }
 
@@ -114,7 +115,7 @@ p {
     width: 220px;
     padding: 20px;
     margin: 10px;
-    background-color: #005B41; 
+    background-color: #9979e2; 
     border: 3px solid #616161;
     border-radius: 10px;
     cursor: pointer;
@@ -130,19 +131,17 @@ p {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: #9EC8B9;
 }
 
 .team-member {
-    color: black;
-    background-color: #9EC8B9; 
+    background-color: #dbdbdb; 
     border: 3px solid #666666;
     border-radius: 10px;
     display: inline-block;
 }
 
 .team-member-name {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     font-size: 12px;
     padding: 5px;
 }
@@ -159,14 +158,14 @@ p {
 }
 
 .team h2 {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     margin: 5px 0;
     font-size: 20px;
 }
 
 .team h3 {
-    font-family: Arial, sans-serif;
-    color: #5C8374; 
+    font-family: Verdana, Geneva, sans-serif;
+    color: #5e5e5e; 
     margin: 5px 0;
     font-size: 16px;
 }
@@ -213,7 +212,7 @@ p {
 }
 
 .addedname {
-    background-color: #5C8374; 
+    background-color: #dbdbdb; 
     border: 3px solid #666666;
     border-radius: 10px;
     margin:0px;
