@@ -6,7 +6,9 @@
     height: 100vh;
     color: #9EC8B9;
     font-size: 25px;
+    font-family: Arial, sans-serif;
     background-color: #0F0F0F;
+    font-family: Arial, sans-serif;
 }
 
 h1,
@@ -29,3 +31,4 @@ select:focus {
     outline: none;
     border-color: #88BDBC;
 }
+

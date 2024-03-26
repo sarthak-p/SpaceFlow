@@ -9,6 +9,7 @@ import { SelectCompanyComponent } from './select-company/select-company.componen
 import { ProjectsComponent } from './projects/projects.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
+import { UserRegistryComponent } from './user-registry/user-registry.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -18,9 +19,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'select-company', component: SelectCompanyComponent },
   { path: 'projects/:id', component: ProjectsComponent },
-  { path: 'create-project/:teamId', component: CreateProjectComponent },
-  { path: 'edit-project', component: EditProjectComponent },
-  { path: 'edit-project/:teamId/:projId', component: EditProjectComponent }
+  { path: 'create-project', component: CreateProjectComponent },
+  { path: 'edit-project/:teamId/:projId', component: EditProjectComponent },
+  { path: 'user-registry', component: UserRegistryComponent } 
 ];
 
 @NgModule({

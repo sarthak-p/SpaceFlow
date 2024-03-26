@@ -1,0 +1,108 @@
+.user-registry {
+    font-family: 'Roboto', sans-serif;
+    background-color: #283593;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mat-toolbar {
+    background: #333;
+    color: white;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-card {
+    margin: 20px;
+    background: #444;
+    color: white;
+}
+
+.mat-card-title {
+    color: #a0a0a0;
+}
+
+.mat-card-subtitle {
+    color: #777;
+    font-size: 0.9em;
+}
+
+.add-user-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+}
+
+.mat-header-cell,
+.mat-cell {
+    color: white;
+}
+
+.mat-row,
+.mat-header-row {
+    border-bottom-color: #575757;
+}
+
+/* Button styles */
+button.mat-button {
+    color: #9FA8DA;
+}
+
+/* Fab button icon color */
+.add-user-button mat-icon {
+    color: white;
+}
+
+/* Card content padding */
+.mat-card-content {
+    padding: 16px;
+}
+
+/* Column definitions */
+.mat-column-name,
+.mat-column-email,
+.mat-column-active,
+.mat-column-admin,
+.mat-column-status {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Header and row styling */
+th.mat-header-cell {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+td.mat-cell {
+    font-weight: 300;
+}
+
+/* Hover effect for rows */
+.mat-row:hover {
+    background-color: #555;
+}
+
+/* Active/Pending status styling */
+.mat-cell.active-yes,
+.mat-cell.status-joined {
+    color: #4CAF50;
+    /* Green for active/joined users */
+}
+
+.mat-cell.active-no,
+.mat-cell.status-pending {
+    color: #FFC107;
+    /* Amber for inactive/pending users */
+}
+
