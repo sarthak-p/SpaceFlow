@@ -12,15 +12,16 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { UserRegistryComponent } from './user-registry/user-registry.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent},
+  { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent},
   { path: "teams", component: TeamsComponent},
   { path: "create-announcement", component: CreateAnnouncementComponent},
   { path: "create-team", component: CreateTeamComponent},
   { path: 'login', component: LoginComponent },
   { path: 'select-company', component: SelectCompanyComponent },
   { path: 'projects/:id', component: ProjectsComponent },
-  { path: 'create-project/:teamid', component: CreateProjectComponent },
-  { path: 'edit-project/:teamId/:projId', component: EditProjectComponent },
+  { path: 'create-project', component: CreateProjectComponent },
+  { path: 'edit-project', component: EditProjectComponent },
   { path: 'user-registry', component: UserRegistryComponent } 
 ];
 

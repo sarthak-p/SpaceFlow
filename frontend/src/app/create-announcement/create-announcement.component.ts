@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-announcement',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class CreateAnnouncementComponent {
 
+  constructor(private router: Router) { }
+
+  goToAnnouncementPage(): void {
+    this.router.navigate(['/home']);
+  }
 }
