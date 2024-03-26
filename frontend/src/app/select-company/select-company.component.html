@@ -1,6 +1,6 @@
 <div class="login-container">
     <h1>Select Company</h1>
-    <div class="form-group">
+    <div class="form-group custom-select-wrapper">
         <select [(ngModel)]="selectedCompany" name="company">
             <option value="" disabled selected>Pick an option</option>
             <option *ngFor="let company of companies" [value]="company">{{company}}</option>
