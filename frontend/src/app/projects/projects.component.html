@@ -10,14 +10,14 @@
   
     <h1 class="text-center">Projects for Team {{teamId}}</h1>
   
-    <button routerLink="/create-project">Create Project</button>
+    <button [routerLink]="['/create-project', teamId]">Create Project</button>
   
     <div class="announcement-container" *ngFor="let project of projects">
       <div class="announcement">
         <h2>{{ project.name }}</h2>
         <h3>Desc: {{ project.desc }}</h3>
         <h4>Active: {{ project.active }}</h4>
-        <button [routerLink]="['/edit-project', project.id]">Edit Project</button>
+        <button [routerLink]="['/edit-project', teamId, project.id]">Edit Project</button>
       </div>
     </div>
       

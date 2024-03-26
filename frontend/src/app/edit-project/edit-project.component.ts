@@ -8,13 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditProjectComponent {
 
-  projectId: string = "";
+  teamId: string = "";
+  projId: string = "";
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.projectId = params['id'];
+      this.teamId = params['teamId']
+      console.log("TEAM ID: " + this.teamId);
+      this.projId = params['projId'];
+      console.log("PROJ ID: " + this.projId);
     });
   }
 
