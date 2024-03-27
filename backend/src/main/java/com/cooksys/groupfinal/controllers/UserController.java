@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cooksys.groupfinal.dtos.BasicUserDto;
+import com.cooksys.groupfinal.dtos.CompanyDto;
 import com.cooksys.groupfinal.dtos.CredentialsDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
 import com.cooksys.groupfinal.dtos.UserRequestDto;
@@ -33,4 +34,8 @@ public class UserController {
         return userService.login(credentialsDto);
     }
 
+	@GetMapping("/{id}/companies")
+	public Set<CompanyDto> getCompanies(@PathVariable Long id) {
+		return userService.getCompanies(id);
+	}
 }
