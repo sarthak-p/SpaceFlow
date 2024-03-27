@@ -10,53 +10,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-   selectedCompanyId?: number | null;
-
-  announcements: { title: string, author: string, date: string, body: string }[] = [];
-
-  constructor(private authService: AuthService, private router: Router) {
-    this.announcements = [
-      {
-        title: 'First Announcement',
-        author: 'John Doe',
-        date: '2024-03-25',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-      },
-      {
-        title: 'Second Announcement',
-        author: 'Jane Smith',
-        date: '2024-03-26',
-        body: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      }
-    ];
-  //announcements: { title: string, author: string, date: string, body: string }[] = [];
+  
+  selectedCompanyId?: number | null;
   announcements: Announcement[] = [];
   companyId: number = 6;
 
-  constructor(private announcementService: AnnouncementService) {
+  constructor(private authService: AuthService, private router: Router, private announcementService: AnnouncementService) {
     
-  }
-
-  ngOnInit(): void {
-    this.fetchAnnouncementsByCompanyId();
   }
 
   fetchAnnouncementsByCompanyId(): void {
     this.announcementService.getAnnouncementsByCompanyId(this.companyId).subscribe(
       (announcements: Announcement[]) => {
         this.announcements = announcements;
-        console.log("LOGGING TEAMS: ");
+        console.log("LOGGING ANNOUNCEMENTS: ");
         console.log(announcements);
       },
       (error: any) => {
-        console.error('Error fetching teams from company:', error);
+          console.error('Error fetching teams from company:', error);
       }
     );
   }
 
-
   ngOnInit() {
     this.authService.getSelectedCompanyId().subscribe(id => this.selectedCompanyId = id);
+    this.fetchAnnouncementsByCompanyId();
   }
 
   logout() {
