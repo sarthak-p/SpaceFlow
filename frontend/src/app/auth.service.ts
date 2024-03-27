@@ -32,5 +32,6 @@ export class AuthService {
 
   logout(): void {
     this.currentUserSubject.next(null);
+    this.selectedCompanyId.next(null);
   }
 }

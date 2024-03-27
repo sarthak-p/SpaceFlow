@@ -1,10 +1,10 @@
 <body>
   <div class="navbar">
-    <a routerLink="/">Home</a>
-    <a routerLink="/select-company">Company</a>
-    <a routerLink="/teams">Teams</a>
-    <a routerLink="/user-registry">Users</a>
-    <a routerLink="/login">Logout</a>
+    <a [routerLink]="['/']">Home</a>
+    <a [routerLink]="['/select-company']">Company</a>
+    <a [routerLink]="['/teams', selectedCompanyId]">Teams</a>
+    <a [routerLink]="['/user-registry', selectedCompanyId]">Users</a>
+    <a [routerLink]="['/login']" (click)="logout()">Logout</a>
   </div>
 
   <div class="main-content">

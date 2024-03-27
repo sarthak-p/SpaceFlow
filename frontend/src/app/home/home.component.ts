@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+   selectedCompanyId?: number | null;
 
   announcements: { title: string, author: string, date: string, body: string }[] = [];
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     this.announcements = [
       {
         title: 'First Announcement',
@@ -25,6 +28,16 @@ export class HomeComponent {
       }
     ];
   }
+
+  ngOnInit() {
+    this.authService.getSelectedCompanyId().subscribe(id => this.selectedCompanyId = id);
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
 
 
 }
