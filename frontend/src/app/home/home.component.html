@@ -1,28 +1,25 @@
-
 <body>
   <div class="navbar">
-      <a routerLink="/">Home</a>
-      <a routerLink="/company">Company</a>
-      <a routerLink="/teams">Teams</a>
-      <a routerLink="/users">Users</a>
-      <a routerLink="/logout">Logout</a>
+    <a routerLink="/">Home</a>
+    <a routerLink="/select-company">Company</a>
+    <a routerLink="/teams">Teams</a>
+    <a routerLink="/user-registry">Users</a>
+    <a routerLink="/logout">Logout</a>
   </div>
 
-  <h1 class="text-center">Home</h1>
+  <div class="main-content">
+    <h1 class="text-center">Home</h1>
 
-  <h2>Announcements</h2>
-  <button routerLink="/create-announcement">Create Announcement</button>
+    <h2>Announcements</h2>
+    <button routerLink="/create-announcement">Create Announcement</button>
 
-  <div class="announcement-container" *ngFor="let article of articles">
-    <div class="announcement">
-    <h2>{{ article.title }}</h2>
-    <h3>Author: {{ article.author }}</h3>
-    <h4>Date: {{ article.date }}</h4>
-    <p>{{ article.body }}</p>
+    <div class="announcement-container" *ngFor="let article of articles">
+      <div class="announcement">
+        <h2>{{ article.title }}</h2>
+        <h3>Author: {{ article.author }}</h3>
+        <h4>Date: {{ article.date }}</h4>
+        <p>{{ article.body }}</p>
+      </div>
     </div>
   </div>
-    
-  
-  
-  
 </body>

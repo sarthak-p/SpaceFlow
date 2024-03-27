@@ -1,39 +1,46 @@
 <body>
-    <h2>Create a Team</h2>
-    <button routerLink="/teams">Back</button>
-    <div class="form-container">
-    <form action="#" method="post">
+    <div class="navbar">
+        <a routerLink="/">Home</a>
+        <a routerLink="/company">Company</a>
+        <a routerLink="/teams">Teams</a>
+        <a routerLink="/users">Users</a>
+        <a routerLink="/login">Logout</a>
+    </div>
 
-      <div class="form-entry">
-        <label for="title">Team Name:</label><br>
-        <input type="text" id="title" name="title"><br>
-      </div>
-
-      <div class="form-entry">
-        <label for="message">Description:</label><br>
-        <input type="text" id="message" name="message"><br>
-      </div>
-
-      <div class="form-entry">
-      <select #dropdown (change)="onDropdownChange(dropdown.value)">
-        <option value="">Select an option</option>
-        <option *ngFor="let option of options" [value]="option">{{ option }}</option>
-      </select>
-      </div>
-      
-      <div class="form-entry">
-      <div id="addname-container">
-        <div *ngFor="let entry of entries" class="addedname">
-          <p>{{ entry }}</p>
-          <button (click)="removeEntry(entry)">X</button>
+    <div class="content-container">
+        <div class="text-center">
+            <h2>Create a Team</h2>
         </div>
-      </div>
-      </div>
 
-      <div class="form-entry">
-        <input type="submit" value="Submit">
-      </div>
+    <div class="form-container">
+        <form action="#" method="post">
+            <div class="form-entry">
+                <label for="title">Team Name:</label>
+                <input type="text" id="title" name="title" class="announcement-input"><br>
+            </div>
 
-    </form>
+            <div class="form-entry">
+                <label for="message">Description:</label>
+                <input type="text" id="message" name="message" class="announcement-input"><br>
+            </div>
+
+            <div class="form-entry">
+                <label for="dropdown">Select members:</label>
+                <select id="dropdown" name="dropdown" class="announcement-input">
+                    <option value="">Select an option</option>
+                </select>
+            </div>
+
+            <div class="form-entry">
+                <div class="addname-container">
+                </div>
+            </div>
+        </form>
+        </div>
+
+        <div class="button-container">
+            <button routerLink="/teams" class="back-button">Back</button>
+            <button type="submit" class="submit-button">Submit</button>
+        </div>
     </div>
 </body>

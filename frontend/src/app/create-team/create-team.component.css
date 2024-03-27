@@ -1,223 +1,138 @@
-
-body, html {
+body,
+html {
     margin: 0;
-    min-height: 100vh;
-    background-color: #c8baff;
-    border-left: 15px solid #a6a6a6; 
-    border-right: 15px solid #a6a6a6; 
-    border-bottom: 15px solid #a6a6a6; 
-    border-top: 15px solid #a6a6a6; 
+    padding: 0;
+    height: 100vh;
+    background-color: #0F0F0F;
+    color: #9EC8B9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-button {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
+.text-center h2 {
+    margin-bottom: 20px;
+    color: #9EC8B9;
+    font-size: 24px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    max-width: 500px;
+    background-color: #232D3F;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border: 2px solid #9EC8B9;
+    margin-bottom: 20px;
+}
+
+.form-entry {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-entry label {
+    color: #9EC8B9;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    max-width: 500px;
+}
+
+.form-entry input,
+.form-entry select {
+    width: 100%;
+    min-width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #232D3F;
+    color: #9EC8B9;
+    border: 1px solid #9EC8B9;
+    border-radius: 5px;
+}
+
+button,
+.submit-button,
+.back-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #005B41;
+    color: #9EC8B9;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 5px;
+}
+
+button:hover,
+.submit-button:hover,
+.back-button:hover {
+    background-color: #008170;
+}
+
+.addname-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.addedname {
+    background-color: #dbdbdb;
+    color: #0F0F0F;
+    border: 3px solid #666666;
+    border-radius: 10px;
     padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.addedname button {
+    cursor: pointer;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
 
-button:hover {
+.addedname button:hover {
     background-color: #0056b3;
-}
-
-h1 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 25px;
-}
-
-h2 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 20px;
-}
-
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-}
-
-.text-center {
-    text-align: center;
 }
 
 .navbar {
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    padding: 5px; 
-    background-color: #a6a6a6; 
+    justify-content: center;
+    width: 100%;
+    background-color: #232D3F;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
 
 .navbar a {
-    padding: 8px 12px; 
-    margin-left: 10px; 
-    text-decoration: none; /* Remove underline */
-    color: #333; 
-    font-family: Verdana, Geneva, sans-serif;
-    border: 1px solid transparent; 
-}
-
-.navbar a:hover {
-    color: #fff;
-}
-
-#avatar {
-    margin: 20px;
-    border: 10px solid #d7d7d7;
-    border-radius: 5px;
-}
-
-#bio {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.announcement-container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.announcement {
-    width: 800px;
-    padding: 20px;
-    margin: 10px;
-    background-color: #9979e2; 
-    border: 3px solid #616161;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.announcement h1 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 0px;
-}
-
-.announcement h2 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 0px;
-}
-
-.announcement p {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-}
-
-.team {
-    width: 220px;
-    padding: 20px;
-    margin: 10px;
-    background-color: #9979e2; 
-    border: 3px solid #616161;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.team-container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.team-member {
-    background-color: #dbdbdb; 
-    border: 3px solid #666666;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-.team-member-name {
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 12px;
-    padding: 5px;
-}
-
-.team:hover {
-    transform: translateY(-5px);
-}
-
-.team h2 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 5px 0;
-    font-size: 20px;
-}
-
-.team h3 {
-    font-family: Verdana, Geneva, sans-serif;
-    color: #5e5e5e; 
-    margin: 5px 0;
+    color: #9EC8B9;
+    text-decoration: none;
+    margin: 0 15px;
     font-size: 16px;
 }
 
-.team p {
-    font-family: Arial, sans-serif;
-    margin: 10px 0;
-    font-size: 14px;
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.form-container {
-    font-family: Arial, sans-serif;
+.content-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.form-entry {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin:20px;
-    max-width: 20vw;
-}
-
-.addname-container {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.addedname {
-    background-color: #dbdbdb; 
-    border: 3px solid #666666;
-    border-radius: 10px;
-    margin:0px;
-    display: inline-block;
-}
-
-.addedname p{
-    margin:0px;
-    display: inline-block;
-}
-
-.addedname button{
-    margin:0px;
-}
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+} 

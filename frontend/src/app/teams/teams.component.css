@@ -1,41 +1,48 @@
-
-body, html {
+body,
+html {
     margin: 0;
     min-height: 100vh;
-    background-color: #c8baff;
-    border-left: 15px solid #a6a6a6; 
-    border-right: 15px solid #a6a6a6; 
-    border-bottom: 15px solid #a6a6a6; 
+    background-color: #0F0F0F;
+    font-size: 25px; 
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
+    background-color: #005B41;
+    color: #9EC8B9;
     cursor: pointer;
+    font-size: 16px;
+    border: none;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #008170;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 h1 {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 25px;
+    color: #9EC8B9;
 }
 
 h2 {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 20px;
+    color: white;
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 20px;
+    color: #9EC8B9;
 }
 
 .text-center {
@@ -43,23 +50,21 @@ p {
 }
 
 .navbar {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    padding: 5px; 
-    background-color: #a6a6a6; 
+    justify-content: center;
+    width: 100%;
+    background-color: #232D3F;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
 
 .navbar a {
-    padding: 8px 12px; 
-    margin-left: 10px; 
-    text-decoration: none; /* Remove underline */
-    color: #333; 
-    font-family: Verdana, Geneva, sans-serif;
-    border: 1px solid transparent; 
-}
-
-.navbar a:hover {
-    color: #fff;
+    color: #9EC8B9;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
 }
 
 #avatar {
@@ -75,48 +80,13 @@ p {
     margin-right: 20px;
 }
 
-.announcement-container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.announcement {
-    width: 800px;
-    padding: 20px;
-    margin: 10px;
-    background-color: #9979e2; 
-    border: 3px solid #616161;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.announcement h1 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 0px;
-}
-
-.announcement h2 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 0px;
-}
-
-.announcement p {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-}
 
 .team {
-    width: 220px;
+    width: 300px;
     padding: 20px;
     margin: 10px;
-    background-color: #9979e2; 
-    border: 3px solid #616161;
+    background-color: #232D3F;
+    border: 1px solid #d7d7d7;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -134,8 +104,8 @@ p {
 }
 
 .team-member {
-    background-color: #dbdbdb; 
-    border: 3px solid #666666;
+    background-color: #dbdbdb;
+    border: 1px solid #666666;
     border-radius: 10px;
     display: inline-block;
 }
@@ -165,7 +135,7 @@ p {
 
 .team h3 {
     font-family: Verdana, Geneva, sans-serif;
-    color: #5e5e5e; 
+    color: #5e5e5e;
     margin: 5px 0;
     font-size: 16px;
 }
@@ -184,6 +154,7 @@ p {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -197,11 +168,9 @@ p {
 }
 
 .form-entry {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin:20px;
-    max-width: 20vw;
+    margin: 20px;
+    width: calc(100% - 40px);
+    align-items: center;
 }
 
 .addname-container {
@@ -212,18 +181,18 @@ p {
 }
 
 .addedname {
-    background-color: #dbdbdb; 
-    border: 3px solid #666666;
+    background-color: #dbdbdb;
+    border: 1px solid #d7d7d7;
     border-radius: 10px;
-    margin:0px;
+    margin: 0px;
     display: inline-block;
 }
 
-.addedname p{
-    margin:0px;
+.addedname p {
+    margin: 0px;
     display: inline-block;
 }
 
-.addedname button{
-    margin:0px;
+.addedname button {
+    margin: 0px;
 }

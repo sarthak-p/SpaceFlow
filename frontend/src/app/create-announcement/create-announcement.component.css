@@ -23,12 +23,12 @@ button:hover {
 }
 
 h1 {
-    font-size: 25px;
-    margin: 15px 0;
+    font-size: 30px;
+    margin: 40px 0;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 25px;
     margin: 10px 0;
 }
 
@@ -113,7 +113,7 @@ p {
     color: #9EC8B9;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .back-button:hover,
