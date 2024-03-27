@@ -6,4 +6,6 @@ public interface TeamService {
 
 	TeamDto getTeamById(Long id);
 
+	TeamDto creatTeam(Long companyId, TeamDto teamDto);
+
 }
