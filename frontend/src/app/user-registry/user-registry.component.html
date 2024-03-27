@@ -23,47 +23,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Joined</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Joined</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Joined</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Joined</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Joined</td>
-                </tr>
-                <tr>
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>Yes</td>
-                    <td>No</td>
-                    <td>Joined</td>
+                <tr *ngFor="let user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.active ? 'Yes' : 'No'}}</td>
+                    <td>{{user.admin ? 'Yes' : 'No'}}</td>
+                    <td>{{user.status}}</td>
                 </tr>
             </tbody>
         </table>

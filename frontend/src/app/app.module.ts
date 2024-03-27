@@ -36,7 +36,6 @@ import { AddUserOverlayComponent } from './add-user-overlay/add-user-overlay.com
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    // Do not include Angular Material modules as requested
   ],
   providers: [],
   bootstrap: [AppComponent]

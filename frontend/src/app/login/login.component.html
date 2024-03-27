@@ -1,13 +1,13 @@
 <div class="login-container">
     <h1>Cook Systems</h1>
-    <p class="subheading">Your trusted partner in technology</p>
+    <p class="subheading">Trusted Partner for IT Labor Solutions</p>
     <div class="login-box">
         <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt=""
             class="logo">
         <form (ngSubmit)="onLogin()">
             <div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
             <div class="form-group">
-                <input type="text" id="username" [(ngModel)]="username" name="username" placeholder="email" required>
+                <input type="text" id="username" [(ngModel)]="username" name="username" placeholder="username" required>
             </div>
             <div class="form-group">
                 <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="password"

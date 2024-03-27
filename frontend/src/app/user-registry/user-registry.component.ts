@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
+import { User } from '../user.model';
 
 
 @Component({
@@ -11,29 +12,26 @@ export class UserRegistryComponent {
   users: User[] = [];
   displayedColumns: string[] = ['name', 'email', 'active', 'admin', 'status'];
   showAddUserOverlay = false;
+  selectedCompanyId: number = 1;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(
-      (data: User[]) => {
-        this.users = data;
-      },
-    (error: any) => {
-      console.error(error);
-    }
-  );
+    this.fetchUsersByCompanyId(this.selectedCompanyId);
   }
 
   toggleOverlay(): void {
     this.showAddUserOverlay = !this.showAddUserOverlay;
   }
-}
 
-interface User {
-  name: string;
-  email: string;
-  active: string;
-  admin: string;
-  status: string;
+  fetchUsersByCompanyId(companyId: number): void {
+    this.userService.getUsersByCompanyId(this.selectedCompanyId).subscribe(
+      (users: User[]) => {
+        this.users = users;
+      },
+      (error: any) => {
+        console.error('Error fetching users for company:', error);
+      }
+    );
+  }
 }
