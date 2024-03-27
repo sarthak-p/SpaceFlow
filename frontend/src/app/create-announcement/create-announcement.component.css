@@ -1,41 +1,38 @@
-
-body, html {
-    margin: 0;
+body,
+html {
     min-height: 100vh;
-    background-color: #c8baff;
-    border-left: 15px solid #a6a6a6; 
-    border-right: 15px solid #a6a6a6; 
-    border-bottom: 15px solid #a6a6a6; 
-    border-top: 15px solid #a6a6a6; 
+    background-color: #0F0F0F;
+    color: #9EC8B9;
+    font-family: Arial, sans-serif;
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 20px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
+    padding: 10px 20px;
+    background-color: #005B41;
+    color: #9EC8B9;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #008170;
 }
 
 h1 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 25px;
+    font-size: 30px;
+    margin: 40px 0;
 }
 
 h2 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 20px;
+    font-size: 25px;
+    margin: 10px 0;
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
 }
 
@@ -45,18 +42,18 @@ p {
 
 .navbar {
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    padding: 5px; 
-    background-color: #a6a6a6; 
+    justify-content: flex-end;
+    padding: 5px;
+    background-color: #232D3F;
 }
 
 .navbar a {
-    padding: 8px 12px; 
-    margin-left: 10px; 
-    text-decoration: none; /* Remove underline */
-    color: #333; 
-    font-family: Verdana, Geneva, sans-serif;
-    border: 1px solid transparent; 
+    padding: 8px 12px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #9EC8B9;
+    font-family: Arial, sans-serif;
+    border: 1px solid transparent;
 }
 
 .navbar a:hover {
@@ -65,7 +62,7 @@ p {
 
 #avatar {
     margin: 20px;
-    border: 10px solid #d7d7d7;
+    border: 10px solid #9EC8B9;
     border-radius: 5px;
 }
 
@@ -84,140 +81,70 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    position: relative; 
 }
+
 
 .announcement {
     width: 800px;
     padding: 20px;
     margin: 10px;
-    background-color: #9979e2; 
+    background-color: #9979e2;
     border: 3px solid #616161;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.announcement h1 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 0px;
-}
-
-.announcement h2 {
-    font-family: Verdana, Geneva, sans-serif;
-    margin: 0px;
-}
-
-.announcement p {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-}
-
-.team {
-    width: 220px;
-    padding: 20px;
-    margin: 10px;
-    background-color: #9979e2; 
-    border: 3px solid #616161;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.team-container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+.button-group {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.team-member {
-    background-color: #dbdbdb; 
-    border: 3px solid #666666;
-    border-radius: 10px;
-    display: inline-block;
+.back-button,
+.submit-button {
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #005B41;
+    color: #9EC8B9;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-.team-member-name {
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 12px;
-    padding: 5px;
+.back-button:hover,
+.submit-button:hover {
+    background-color: #008170;
 }
 
-.team:hover {
-    transform: translateY(-5px);
+.announcement-input {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 15px;
+    border: 2px solid #9EC8B9;
+    border-radius: 5px;
+    background-color: #232D3F;
+    color: #9EC8B9;
+    font-size: 16px;
+    height: 200px;
+    width: 500px; 
 }
 
-.team h2 {
-    font-family: Verdana, Geneva, sans-serif;
+.announcement-input:focus {
+    outline: none;
+}
+
+.announcement h1,
+.announcement h2 {
+    font-family: Arial, sans-serif;
     margin: 5px 0;
     font-size: 20px;
 }
 
-.team h3 {
-    font-family: Verdana, Geneva, sans-serif;
-    color: #5e5e5e; 
-    margin: 5px 0;
-    font-size: 16px;
-}
-
-.team p {
-    font-family: Arial, sans-serif;
-    margin: 10px 0;
-    font-size: 14px;
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.form-container {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form-entry {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin:20px;
-    max-width: 20vw;
-}
-
-.addname-container {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.addedname {
-    background-color: #dbdbdb; 
-    border: 3px solid #666666;
-    border-radius: 10px;
-    margin:0px;
-    display: inline-block;
-}
-
-.addedname p{
-    margin:0px;
-    display: inline-block;
-}
-
-.addedname button{
-    margin:0px;
+.title-input {
+    height: 10px;
 }

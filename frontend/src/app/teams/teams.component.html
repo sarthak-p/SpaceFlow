@@ -1,16 +1,17 @@
-
 <body>
     <div class="navbar">
         <a routerLink="/">Home</a>
-        <a routerLink="/company">Company</a>
+        <a routerLink="/select-company">Company</a>
         <a routerLink="/teams">Teams</a>
-        <a routerLink="/users">Users</a>
-        <a routerLink="/logout">Logout</a>
+        <a routerLink="/user-registry">Users</a>
+        <a routerLink="/login">Logout</a>
     </div>
 
     <h1 class="text-center">Teams</h1>
 
-    <button routerLink="/create-team">Create a team</button>
+    <div class="button-container">
+        <button routerLink="/create-team">Create a team</button>
+    </div>
 
     <div class="team-container" *ngFor="let team of teams">
         <div class="team" [routerLink]="['/projects', team.id]">
@@ -19,12 +20,12 @@
             <p>{{team.desc}}</p>
             <div class="team-member-container" *ngFor="let member of team.members">
                 <div class="team-member">
-                    <div class = "team-member-name"> <b>{{member}}</b> </div>
+                    <div class="team-member-name"> <b>{{member}}</b> </div>
                 </div>
             </div>
         </div>
-      </div>
-    
-    
-    
+    </div>
+
+
+
 </body>

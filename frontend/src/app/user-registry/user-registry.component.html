@@ -1,19 +1,17 @@
-<div class="user-registry">
-    <header class="toolbar"
-        style="background-color: #3f51b5; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
-        <span>ACTING AS ADMIN</span>
-        <div>
-            <button>Home</button>
-            <button>Company</button>
-            <button>Teams</button>
-            <button>Users</button>
-            <button>Logout</button>
-        </div>
-    </header>
+<div class="navbar">
+    <a routerLink="/">Home</a>
+    <a routerLink="/select-company">Company</a>
+    <a routerLink="/teams">Teams</a>
+    <a routerLink="/user-registry">Users</a>
+    <a routerLink="/login">Logout</a>
+</div>
 
-    <section class="card">
-        <h2>User Registry</h2>
-        <p>A general view of all your members in your organization</p>
+<div class="user-registry-container">
+    
+    <h1>User Registry</h1>
+    <p class="subheading">A general view of all your members in your organization</p>
+
+    <div class="user-registry-box">
         <table class="user-table">
             <thead>
                 <tr>
@@ -25,18 +23,52 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users">
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.active}}</td>
-                    <td>{{user.admin}}</td>
-                    <td>{{user.status}}</td>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>Joined</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>Joined</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>Joined</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>Joined</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>Joined</td>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>Joined</td>
                 </tr>
             </tbody>
         </table>
-    </section>
-
-    <button class="add-user-button">
-        <span>Add</span>
-    </button>
+    </div>
+    <button class="add-user-button" (click)="toggleOverlay()">Add User</button>
 </div>
+
+<app-add-user-overlay *ngIf="showAddUserOverlay" (close)="toggleOverlay()"></app-add-user-overlay>

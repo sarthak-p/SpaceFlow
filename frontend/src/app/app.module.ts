@@ -14,6 +14,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { UserRegistryComponent } from './user-registry/user-registry.component';
+import { AddUserOverlayComponent } from './add-user-overlay/add-user-overlay.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserRegistryComponent } from './user-registry/user-registry.component';
     ProjectsComponent,
     CreateProjectComponent,
     EditProjectComponent,
-    UserRegistryComponent
+    UserRegistryComponent,
+    AddUserOverlayComponent
   ],
   imports: [
     BrowserModule,

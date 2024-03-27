@@ -2,21 +2,18 @@
 body, html {
     margin: 0;
     min-height: 100vh;
-    background-color: #c8baff;
-    border-left: 15px solid #a6a6a6; 
-    border-right: 15px solid #a6a6a6; 
-    border-bottom: 15px solid #a6a6a6; 
+    background-color: #0F0F0F;
 }
 
 button {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 20px;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
+    border-radius: 5px; 
+    padding: 10px 20px;
+    background-color: #005B41;
+    color: #9EC8B9;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer;font-size: 16px;
 }
 
 button:hover {
@@ -24,18 +21,21 @@ button:hover {
 }
 
 h1 {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 25px;
+    color: #9EC8B9;
 }
 
 h2 {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 20px;
+    color: #9EC8B9;
 }
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 20px;
+    color: #9EC8B9;
 }
 
 .text-center {
@@ -43,23 +43,24 @@ p {
 }
 
 .navbar {
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    padding: 5px; 
-    background-color: #a6a6a6; 
+    justify-content: center;
+    width: 100%;
+    background-color: #232D3F;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .navbar a {
-    padding: 8px 12px; 
-    margin-left: 10px; 
-    text-decoration: none; /* Remove underline */
-    color: #333; 
-    font-family: Verdana, Geneva, sans-serif;
-    border: 1px solid transparent; 
-}
-
-.navbar a:hover {
-    color: #fff;
+    color: #9EC8B9;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
 }
 
 #avatar {
@@ -83,14 +84,15 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #9EC8B9;
 }
 
 .announcement {
     width: 800px;
     padding: 20px;
     margin: 10px;
-    background-color: #9979e2; 
-    border: 3px solid #616161;
+    background-color: #232D3F; 
+    border: 1px solid #616161;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -158,7 +160,7 @@ p {
 
 .team h3 {
     font-family: Verdana, Geneva, sans-serif;
-    color: #5e5e5e; 
+    color: #9EC8B9;
     margin: 5px 0;
     font-size: 16px;
 }
@@ -219,4 +221,12 @@ p {
 
 .addedname button{
     margin:0px;
+}
+
+.main-content {
+    width: 100%;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
