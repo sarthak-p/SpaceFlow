@@ -80,3 +80,10 @@ button {
     margin-top: 10px;
     width: 50%;
 }
+
+.error-message {
+    color: #FF5733;
+    font-size: 13px;
+    margin-bottom: 15px;
+    text-align: center;
+}
