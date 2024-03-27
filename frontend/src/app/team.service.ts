@@ -22,7 +22,7 @@ export class TeamService {
   }
 
   getTeamsByCompanyId(companyId: number): Observable<Team[]> {
-  return this.http.get<Team[]>(`http://localhost:8080/company/6/teams`);
+  return this.http.get<Team[]>(`http://localhost:8080/company/${companyId}/teams`);
   }
 
 }

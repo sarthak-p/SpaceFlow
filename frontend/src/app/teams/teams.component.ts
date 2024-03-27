@@ -34,15 +34,17 @@ export class TeamsComponent {
   }
 
   ngOnInit(): void {
-    //console.log(this.fetchTeamsByCompanyId);
-    this.teamService.getData();
+    this.fetchTeamsByCompanyId();
+    //this.teamService.getData();
 
   }
 
-  fetchTeamsByCompanyId(companyId: number): void {
+  fetchTeamsByCompanyId(): void {
     this.teamService.getTeamsByCompanyId(this.companyId).subscribe(
       (teams: Team[]) => {
         this.teams = teams;
+        console.log("LOGGING TEAMS: ");
+        console.log(teams);
       },
       (error: any) => {
         console.error('Error fetching teams from company:', error);
