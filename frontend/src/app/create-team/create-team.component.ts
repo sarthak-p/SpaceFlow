@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
+import { Team } from '../team.model';
 import { User } from '../user.model';
 
 @Component({
@@ -8,8 +9,15 @@ import { User } from '../user.model';
   styleUrls: ['./create-team.component.css']
 })
 export class CreateTeamComponent {
+  newTeam: Team = {
+    id: 9999, // This should be ignored by the backend
+    name: "Name",
+    description: "Desc",
+    teammates: []
+  };
   name: string = "";
   description: string = "";
+  teammates: any[] = [];
   options: string[] = ["Select a team member"];
   entries: string[] = [];
   allOptions: string[] = [];
@@ -60,13 +68,17 @@ export class CreateTeamComponent {
     // console.log(this.entries);
   }
 
-  generateUserDtoList() {
-    
+  generateTeammatesDtoList() {
+
   }
 
   onSubmit() {
     console.log("SUBMIT");
-    //this.teamService.createTeam(this.currentCompanyId, this.currentUserName, this.title, this.description);
+    this.newTeam.name = this.name;
+    this.newTeam.description = this.description;
+    this.generateTeammatesDtoList();
+    this.newTeam.teammates = this.teammates;
+    //this.teamService.createTeam(this.currentCompanyId, newTeam);
   }
 
 }
