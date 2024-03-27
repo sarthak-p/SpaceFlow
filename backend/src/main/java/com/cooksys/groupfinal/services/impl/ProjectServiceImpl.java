@@ -42,4 +42,20 @@ public class ProjectServiceImpl implements ProjectService {
 		return(projectMapper.entityToDto(project));
 	}
 
+
+	@Override
+	public ProjectDto editProject(ProjectDto projectDto, Long projectId) {
+		Project editProject = projectMapper.dtoToEntity(projectDto);
+		Optional<Project> optionalProject = projectRepository.findById(projectId);
+		if(optionalProject.isEmpty()) {
+			throw new NotFoundException("No such project with ID exists in database");
+		}
+		
+		Project project = optionalProject.get();
+		
+		project.setName(editProject.getName());
+		project.setDescription(editProject.getDescription());
+		return projectMapper.entityToDto(project);
+	}
+
 }
