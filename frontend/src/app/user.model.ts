@@ -1,7 +1,11 @@
 export interface User {
-  name: string;
-  email: string;
-  active: boolean;
+  id: number;
+  profile: {
+    firstName: string;
+    lastName: string;
+    email: string;
+  };
   admin: boolean;
+  active: boolean;
   status: string;
 }
