@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class CreateAnnouncementComponent {
 
+  currentUserName: string = "CURRENT-USER"; // This should be updated by a global app variable on init
   constructor(private router: Router) { }
 
   goToAnnouncementPage(): void {

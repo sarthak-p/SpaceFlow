@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AnnouncementService } from '../announcement.service';
+import { Announcement } from '../announcement.model';
 
 @Component({
   selector: 'app-home',
@@ -7,23 +9,29 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  announcements: { title: string, author: string, date: string, body: string }[] = [];
+  //announcements: { title: string, author: string, date: string, body: string }[] = [];
+  announcements: Announcement[] = [];
+  companyId: number = 6;
 
-  constructor() {
-    this.announcements = [
-      {
-        title: 'First Announcement',
-        author: 'John Doe',
-        date: '2024-03-25',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  constructor(private announcementService: AnnouncementService) {
+    
+  }
+
+  ngOnInit(): void {
+    this.fetchAnnouncementsByCompanyId();
+  }
+
+  fetchAnnouncementsByCompanyId(): void {
+    this.announcementService.getAnnouncementsByCompanyId(this.companyId).subscribe(
+      (announcements: Announcement[]) => {
+        this.announcements = announcements;
+        console.log("LOGGING TEAMS: ");
+        console.log(announcements);
       },
-      {
-        title: 'Second Announcement',
-        author: 'Jane Smith',
-        date: '2024-03-26',
-        body: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      (error: any) => {
+        console.error('Error fetching teams from company:', error);
       }
-    ];
+    );
   }
 
 
