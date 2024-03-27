@@ -40,6 +40,8 @@ public class ProjectServiceImpl implements ProjectService {
 		
 		Set<Project> projects = team.getProjects();
 		projects.add(project);
+		team.setProjects(projects);
+		teamRepository.saveAndFlush(team);
 		
 		return(projectMapper.entityToDto(project));
 	}
@@ -57,6 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
 		
 		project.setName(editProject.getName());
 		project.setDescription(editProject.getDescription());
+		projectRepository.saveAndFlush(project);
 		return projectMapper.entityToDto(project);
 	}
 

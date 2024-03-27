@@ -54,11 +54,15 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		
 		company.setAnnouncements(announcements);
 		
+		companyRepository.saveAndFlush(company);
+		
 		announcements = author.getAnnouncements();
 		
 		announcements.add(announcement);
 		
 		author.setAnnouncements(announcements);
+		
+		userRepository.saveAndFlush(author);
 		
 		return announcementMapper.entityToDto(announcement);
 	}
