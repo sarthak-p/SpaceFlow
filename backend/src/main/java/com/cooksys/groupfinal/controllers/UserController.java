@@ -25,32 +25,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserController {
 	
-	private final UserService userService;
-	
-	@PostMapping
-	public FullUserDto createUser(@RequestBody UserRequestDto userRequestDto) {
-		return userService.createUser(userRequestDto);
-	}
+	private final UserService userService;	
 	
 	@PostMapping("/login")
 	@CrossOrigin(origins="*")
     public FullUserDto login(@RequestBody CredentialsDto credentialsDto) {
         return userService.login(credentialsDto);
     }
-	
-	@GetMapping
-	Set<FullUserDto> getAllUsers(){
-		return userService.getAllUsers();
-	}
-	
-	@GetMapping("/basic")
-	Set<BasicUserDto> getAllUsersBasic(){
-		return userService.getAllUsersBasic();
-	}
-	
-	@DeleteMapping("{username}")
-	FullUserDto deleteUser(@PathVariable("username") String username) {
-		return userService.deleteUser(username);
-	}
 
 }

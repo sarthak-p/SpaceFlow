@@ -22,6 +22,7 @@ public class CompanyController {
 	
 	private final CompanyService companyService;
 	
+	
 	@GetMapping("/{id}/users")
     public Set<FullUserDto> getAllUsers(@PathVariable Long id) {
         return companyService.getAllUsers(id);
@@ -41,5 +42,5 @@ public class CompanyController {
 	public Set<ProjectDto> getAllProjects(@PathVariable Long companyId, @PathVariable Long teamId) {
 		return companyService.getAllProjects(companyId, teamId);
 	}
-
+	
 }
