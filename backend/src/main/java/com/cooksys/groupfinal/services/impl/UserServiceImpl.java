@@ -48,6 +48,8 @@ public class UserServiceImpl implements UserService {
         return user.get();
     }
 	
+	
+	
 	@Override
 	public FullUserDto login(CredentialsDto credentialsDto) {
 		if (credentialsDto == null || credentialsDto.getUsername() == null || credentialsDto.getPassword() == null) {
@@ -71,6 +73,26 @@ public class UserServiceImpl implements UserService {
 		Set<Company> companies = companyRepository.findByEmployeesId(id);
 		
 		return companyMapper.entitiesToDtos(companies);
+	}
+
+
+
+	@Override
+	public FullUserDto createUser(BasicUserDto basicUserDto, Long companyId) {
+		if(!companyRepository.existsById(companyId)) {
+			throw new NotFoundException("No such company with given ID");
+		}
+		Company company = companyRepository.findById(companyId).get();
+		User user = basicUserMapper.basicUserDtoToEntity(basicUserDto);
+		Set<Company> companies = user.getCompanies();
+		companies.add(company);
+		user.setCompanies(companies);
+		userRepository.saveAndFlush(user);
+		Set<User> users = company.getEmployees();
+		users.add(user);
+		company.setEmployees(users);
+		companyRepository.saveAndFlush(company);
+		return fullUserMapper.entityToFullUserDto(user);
 	}	
 
 }

@@ -13,5 +13,7 @@ public interface UserService {
 
 	FullUserDto login(CredentialsDto credentialsDto);
 
-	Set<CompanyDto> getCompanies(Long id); 
+	Set<CompanyDto> getCompanies(Long id);
+
+	FullUserDto createUser(BasicUserDto basicUserDto, Long companyId); 
 }
