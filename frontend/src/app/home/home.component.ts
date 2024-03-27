@@ -7,18 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  articles: { title: string, author: string, date: string, body: string }[] = [];
+  announcements: { title: string, author: string, date: string, body: string }[] = [];
 
   constructor() {
-    this.articles = [
+    this.announcements = [
       {
-        title: 'First Article',
+        title: 'First Announcement',
         author: 'John Doe',
         date: '2024-03-25',
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
       },
       {
-        title: 'Second Article',
+        title: 'Second Announcement',
         author: 'Jane Smith',
         date: '2024-03-26',
         body: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'

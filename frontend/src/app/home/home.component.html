@@ -13,12 +13,12 @@
   <h2>Announcements</h2>
   <button routerLink="/create-announcement">Create Announcement</button>
 
-  <div class="announcement-container" *ngFor="let article of articles">
+  <div class="announcement-container" *ngFor="let announcement of announcements">
     <div class="announcement">
-    <h2>{{ article.title }}</h2>
-    <h3>Author: {{ article.author }}</h3>
-    <h4>Date: {{ article.date }}</h4>
-    <p>{{ article.body }}</p>
+    <h2>{{ announcement.title }}</h2>
+    <h3>Author: {{ announcement.author }}</h3>
+    <h4>Date: {{ announcement.date }}</h4>
+    <p>{{ announcement.body }}</p>
     </div>
   </div>
     
