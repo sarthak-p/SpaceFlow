@@ -5,15 +5,15 @@
       <form action="#" method="post">
         <div class="form-entry">
           <label for="title">Title:</label><br>
-          <input type="text" id="title" name="title" class="announcement-input title-input" placeholder="Enter title">
+          <input type="text" id="title" name="title" class="announcement-input title-input" placeholder="Enter title" [(ngModel)]="title">
         </div>
         <div class="form-entry">
           <label for="message">Message:</label><br>
-          <textarea id="message" name="message" class="announcement-input" placeholder="Enter message"></textarea>
+          <textarea id="message" name="message" class="announcement-input" placeholder="Enter message" [(ngModel)]="description"></textarea>
         </div>
         <div class="button-group">
           <button type="button" class="back-button" (click)="goToAnnouncementPage()">Back</button>
-          <button type="submit" class="submit-button">Submit</button>
+          <button class="submit-button" (click)="onSubmit()">Submit</button>
         </div>
       </form>
     </div>

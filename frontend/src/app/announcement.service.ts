@@ -14,4 +14,15 @@ export class AnnouncementService {
   getAnnouncementsByCompanyId(companyId: number): Observable<Announcement[]> {
     return this.http.get<Announcement[]>(`http://localhost:8080/company/${companyId}/announcements`);
     }
+
+  createAnnouncement(companyId: number, username: string, title: string, description: string){
+    this.http.post<any>(`http://localhost:8080/announcements/${companyId}/${username}/${title}/${description}`, null).subscribe(
+      (data) => {
+        console.log(data); 
+      },
+      (error) => {
+        console.error('Error occurred:', error);
+      }
+    );
+  }
 }
