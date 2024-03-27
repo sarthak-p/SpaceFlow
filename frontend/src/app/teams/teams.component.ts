@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TeamService } from '../team.service';
+import { Team } from '../team.model';
 
 @Component({
   selector: 'app-teams',
@@ -7,25 +9,45 @@ import { Component } from '@angular/core';
 })
 export class TeamsComponent {
 
-  teams: { teamname: string, numprojects: string, desc: string, members: string[], id: string }[] = [];
+  //teams: { teamname: string, numprojects: string, desc: string, members: string[], id: string }[] = [];
+  teams: Team[] = [];
+  companyId: number = 6;
 
-  constructor() {
-    this.teams = [
-      {
-        teamname: "Team Blue",
-        numprojects: "4",
-        desc: "Four score and seven years ago...",
-        members: ["Billy", "Bobby", "Kenny"],
-        id: "1"
+  constructor(private teamService: TeamService) {
+
+    // this.teams = [
+    //   {
+    //     teamname: "Team Blue",
+    //     numprojects: "4",
+    //     desc: "Four score and seven years ago...",
+    //     members: ["Billy", "Bobby", "Kenny"],
+    //     id: "1"
+    //   },
+    //   {
+    //     teamname: "Team Red",
+    //     numprojects: "2",
+    //     desc: "The bee, of course, flys anyway...",
+    //     members: ["Kurt", "Burt", "Blart"],
+    //     id: "2"
+    //   }
+    // ];
+  }
+
+  ngOnInit(): void {
+    //console.log(this.fetchTeamsByCompanyId);
+    this.teamService.getData();
+
+  }
+
+  fetchTeamsByCompanyId(companyId: number): void {
+    this.teamService.getTeamsByCompanyId(this.companyId).subscribe(
+      (teams: Team[]) => {
+        this.teams = teams;
       },
-      {
-        teamname: "Team Red",
-        numprojects: "2",
-        desc: "The bee, of course, flys anyway...",
-        members: ["Kurt", "Burt", "Blart"],
-        id: "2"
+      (error: any) => {
+        console.error('Error fetching teams from company:', error);
       }
-    ];
+    );
   }
 
 }

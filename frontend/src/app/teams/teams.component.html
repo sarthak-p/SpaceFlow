@@ -13,9 +13,9 @@
         <button routerLink="/create-team">Create a team</button>
     </div>
 
-    <div class="team-container" *ngFor="let team of teams">
+    <!-- <div class="team-container" *ngFor="let team of teams">
         <div class="team" [routerLink]="['/projects', team.id]">
-            <h2>{{team.teamname}}</h2>
+            <h2>{{team.name}}</h2>
             <h3># of projects: {{team.numprojects}}</h3>
             <p>{{team.desc}}</p>
             <div class="team-member-container" *ngFor="let member of team.members">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
