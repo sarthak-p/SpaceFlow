@@ -1,6 +1,7 @@
 package com.cooksys.groupfinal.services.impl;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -35,9 +36,10 @@ public class ProjectServiceImpl implements ProjectService {
 		Team team = optionalTeam.get();
 		project.setTeam(team);
 		project.setActive(true);
-		team.getProjects().add(project);
-		
 		projectRepository.saveAndFlush(project);
+		
+		Set<Project> projects = team.getProjects();
+		projects.add(project);
 		
 		return(projectMapper.entityToDto(project));
 	}

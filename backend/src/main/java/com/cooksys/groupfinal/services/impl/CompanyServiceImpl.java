@@ -11,6 +11,7 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import com.cooksys.groupfinal.dtos.AnnouncementDto;
+import com.cooksys.groupfinal.dtos.CompanyDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
 import com.cooksys.groupfinal.dtos.ProjectDto;
 import com.cooksys.groupfinal.dtos.TeamDto;
@@ -21,6 +22,7 @@ import com.cooksys.groupfinal.entities.Team;
 import com.cooksys.groupfinal.entities.User;
 import com.cooksys.groupfinal.exceptions.NotFoundException;
 import com.cooksys.groupfinal.mappers.AnnouncementMapper;
+import com.cooksys.groupfinal.mappers.CompanyMapper;
 import com.cooksys.groupfinal.mappers.ProjectMapper;
 import com.cooksys.groupfinal.mappers.TeamMapper;
 import com.cooksys.groupfinal.mappers.FullUserMapper;
@@ -35,6 +37,7 @@ import lombok.RequiredArgsConstructor;
 public class CompanyServiceImpl implements CompanyService {
 	
 	private final CompanyRepository companyRepository;
+	private final CompanyMapper companyMapper;
 	private final TeamRepository teamRepository;
 	private final FullUserMapper fullUserMapper;
 	private final AnnouncementMapper announcementMapper;
@@ -92,6 +95,13 @@ public class CompanyServiceImpl implements CompanyService {
 		team.getProjects().forEach(filteredProjects::add);
 		filteredProjects.removeIf(project -> !project.isActive());
 		return projectMapper.entitiesToDtos(filteredProjects);
+	}
+
+	@Override
+	public Set<CompanyDto> getAllCompanies() {
+		Set<Company> companies = new HashSet<>(companyRepository.findAll());
+		
+		return companyMapper.entitiesToDtos(companies);
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.cooksys.groupfinal.controllers;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cooksys.groupfinal.dtos.AnnouncementDto;
+import com.cooksys.groupfinal.dtos.CompanyDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
 import com.cooksys.groupfinal.dtos.ProjectDto;
 import com.cooksys.groupfinal.dtos.TeamDto;
+import com.cooksys.groupfinal.entities.Company;
 import com.cooksys.groupfinal.services.CompanyService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,6 +24,11 @@ import lombok.RequiredArgsConstructor;
 public class CompanyController {
 	
 	private final CompanyService companyService;
+	
+	@GetMapping
+	public Set<CompanyDto> getAllCompanies(){
+		return companyService.getAllCompanies();
+	}
 	
 	
 	@GetMapping("/{id}/users")
