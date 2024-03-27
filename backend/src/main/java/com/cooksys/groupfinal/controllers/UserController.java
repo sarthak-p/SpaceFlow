@@ -30,8 +30,8 @@ public class UserController {
 	private final UserService userService;
 	
 	@PostMapping("/{companyId}")
-	public FullUserDto createUser(@RequestBody BasicUserDto basicUserDto, @PathVariable Long companyId) {
-		return userService.createUser(basicUserDto, companyId);
+	public FullUserDto createUser(@RequestBody UserRequestDto userRequestDto, @PathVariable Long companyId) {
+		return userService.createUser(userRequestDto, companyId);
 	}
 	
 	

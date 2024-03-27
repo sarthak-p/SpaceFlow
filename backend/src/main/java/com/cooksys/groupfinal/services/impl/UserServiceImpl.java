@@ -78,12 +78,12 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public FullUserDto createUser(BasicUserDto basicUserDto, Long companyId) {
+	public FullUserDto createUser(UserRequestDto userRequestDto, Long companyId) {
 		if(!companyRepository.existsById(companyId)) {
 			throw new NotFoundException("No such company with given ID");
 		}
 		Company company = companyRepository.findById(companyId).get();
-		User user = basicUserMapper.basicUserDtoToEntity(basicUserDto);
+		User user = fullUserMapper.requestDtoToEntity(userRequestDto);
 		Set<Company> companies = user.getCompanies();
 		companies.add(company);
 		user.setCompanies(companies);
