@@ -15,5 +15,7 @@ public interface UserService {
 
 	Set<CompanyDto> getCompanies(Long id);
 
-	FullUserDto createUser(UserRequestDto userRequestDto, Long companyId); 
+	//FullUserDto createUser(BasicUserDto basicUserDto, Long companyId);
+	
+	FullUserDto createUser(UserRequestDto userRequestDto, Long companyId);
 }

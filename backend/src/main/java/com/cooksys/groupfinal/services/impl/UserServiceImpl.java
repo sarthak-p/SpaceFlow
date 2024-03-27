@@ -1,5 +1,8 @@
 package com.cooksys.groupfinal.services.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -31,68 +34,75 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-	
+
+	private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+
 	private final UserRepository userRepository;
-  private final FullUserMapper fullUserMapper;
-  private final BasicUserMapper basicUserMapper;
+	private final FullUserMapper fullUserMapper;
+	private final BasicUserMapper basicUserMapper;
 	private final CredentialsMapper credentialsMapper;
-	
+
 	private final CompanyRepository companyRepository;
 	private final CompanyMapper companyMapper;
-	
+
 	private User findUser(String username) {
-        Optional<User> user = userRepository.findByCredentialsUsernameAndActiveTrue(username);
-        if (user.isEmpty()) {
-            throw new NotFoundException("The username provided does not belong to an active user.");
-        }
-        return user.get();
-    }
-	
-	
-	
+		Optional<User> user = userRepository.findByCredentialsUsernameAndActiveTrue(username);
+		if (user.isEmpty()) {
+			throw new NotFoundException("The username provided does not belong to an active user.");
+		}
+		return user.get();
+	}
+
 	@Override
 	public FullUserDto login(CredentialsDto credentialsDto) {
 		if (credentialsDto == null || credentialsDto.getUsername() == null || credentialsDto.getPassword() == null) {
-            throw new BadRequestException("A username and password are required.");
-        }
-        Credentials credentialsToValidate = credentialsMapper.dtoToEntity(credentialsDto);
-        User userToValidate = findUser(credentialsDto.getUsername());
-        if (!userToValidate.getCredentials().equals(credentialsToValidate)) {
-            throw new NotAuthorizedException("The provided credentials are invalid.");
-        }
-        if (userToValidate.getStatus().equals("PENDING")) {
-        	userToValidate.setStatus("JOINED");
-        	userRepository.saveAndFlush(userToValidate);
-        }
-        return fullUserMapper.entityToFullUserDto(userToValidate);
+			throw new BadRequestException("A username and password are required.");
+		}
+		Credentials credentialsToValidate = credentialsMapper.dtoToEntity(credentialsDto);
+		User userToValidate = findUser(credentialsDto.getUsername());
+		if (!userToValidate.getCredentials().equals(credentialsToValidate)) {
+			throw new NotAuthorizedException("The provided credentials are invalid.");
+		}
+		if (userToValidate.getStatus().equals("PENDING")) {
+			userToValidate.setStatus("JOINED");
+			userRepository.saveAndFlush(userToValidate);
+		}
+		return fullUserMapper.entityToFullUserDto(userToValidate);
 	}
 
 	@Override
 	public Set<CompanyDto> getCompanies(Long id) {
-		
+
 		Set<Company> companies = companyRepository.findByEmployeesId(id);
-		
+
 		return companyMapper.entitiesToDtos(companies);
 	}
 
-
-
 	@Override
 	public FullUserDto createUser(UserRequestDto userRequestDto, Long companyId) {
-		if(!companyRepository.existsById(companyId)) {
+
+		if (!companyRepository.existsById(companyId)) {
+			log.error("Company with ID {} not found", companyId);
 			throw new NotFoundException("No such company with given ID");
 		}
+
 		Company company = companyRepository.findById(companyId).get();
-		User user = fullUserMapper.requestDtoToEntity(userRequestDto);
+		User user = basicUserMapper.userRequestDtoToEntity(userRequestDto);
+
+		user.setActive(true);
+		user.setStatus("JOINED");
+
 		Set<Company> companies = user.getCompanies();
 		companies.add(company);
 		user.setCompanies(companies);
+
 		userRepository.saveAndFlush(user);
+
 		Set<User> users = company.getEmployees();
 		users.add(user);
 		company.setEmployees(users);
 		companyRepository.saveAndFlush(company);
 		return fullUserMapper.entityToFullUserDto(user);
-	}	
+	}
 
 }
