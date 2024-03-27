@@ -13,29 +13,28 @@ export class SelectCompanyComponent implements OnInit {
   companies: Company[] = [];
   selectedCompany?: number;
 
-  constructor(private authService: AuthService, private companyService: CompanyService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private companyService: CompanyService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.authService.currentUser.subscribe((user: any) => { 
-      if (user && user.companies) {
-        this.companies = user.companies;
-      } else {
-        this.fetchCompanies();
-      }
-    });
+    const userId = this.authService.getCurrentUserId();
+    if (userId) {
+      this.companyService.getCompaniesForUser(userId).subscribe({
+        next: (companies) => this.companies = companies,
+        error: (error) => console.error('Error fetching companies for user:', error)
+      });
+    } else {
+      console.error('User ID is missing');
+    }
   }
 
-  fetchCompanies(): void {
-    this.companyService.getCompanies().subscribe({
-      next: (companies) => this.companies = companies,
-      error: (error) => console.error('Error fetching companies:', error)
-    });
-  }
-
-  onSelectCompany(): void {
-    if (this.selectedCompany) {
-      this.authService.setSelectedCompanyId(this.selectedCompany);
-      this.router.navigate(['/company-home', this.selectedCompany]);
+  onSelectCompany(companyId?: number): void {
+    if (companyId) {
+      this.authService.setSelectedCompanyId(companyId);
+      this.router.navigate(['/home', companyId]); 
     }
   }
 }

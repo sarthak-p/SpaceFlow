@@ -1,37 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-registry',
   templateUrl: './user-registry.component.html',
   styleUrls: ['./user-registry.component.css']
 })
-export class UserRegistryComponent {
+export class UserRegistryComponent implements OnInit {
   users: User[] = [];
-  displayedColumns: string[] = ['name', 'email', 'active', 'admin', 'status'];
+
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute
+  ) { }
+  
   showAddUserOverlay = false;
-  selectedCompanyId: number = 1;
-
-  constructor(private userService: UserService) { }
-
-  ngOnInit() {
-    this.fetchUsersByCompanyId(this.selectedCompanyId);
-  }
 
   toggleOverlay(): void {
     this.showAddUserOverlay = !this.showAddUserOverlay;
   }
 
-  fetchUsersByCompanyId(companyId: number): void {
-    this.userService.getUsersByCompanyId(this.selectedCompanyId).subscribe(
-      (users: User[]) => {
-        this.users = users;
-      },
-      (error: any) => {
-        console.error('Error fetching users for company:', error);
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const companyId = +params['companyId'];
+      if (companyId) {
+        this.fetchUsersByCompanyId(companyId);
+      } else {
+        console.error('Company ID is missing');
       }
+    });
+  }
+
+  fetchUsersByCompanyId(companyId: number): void {
+    this.userService.getUsersByCompanyId(companyId).subscribe(
+      users => this.users = users,
+      error => console.error('Error fetching users:', error)
     );
   }
 }

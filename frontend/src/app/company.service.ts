@@ -18,4 +18,8 @@ export class CompanyService {
   getCompanyDetails(companyId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${companyId}`);
   }
+
+  getCompaniesForUser(userId: number): Observable<Company[]> {
+    return this.http.get<Company[]>(`http://localhost:8080/users/${userId}/companies`);
+  }
 }
