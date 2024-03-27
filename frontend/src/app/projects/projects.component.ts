@@ -32,7 +32,7 @@ export class ProjectsComponent {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.teamId = params['id'];
+      this.teamId = params['teamId'];
     });
   }
 
