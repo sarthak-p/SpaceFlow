@@ -20,7 +20,7 @@ export class HomeComponent {
   }
 
   fetchAnnouncementsByCompanyId(): void {
-    this.announcementService.getAnnouncementsByCompanyId(this.companyId).subscribe(
+    this.announcementService.getAnnouncementsByCompanyId(this.companyId).subscribe( // placeholder id here
       (announcements: Announcement[]) => {
         this.announcements = announcements;
         console.log("LOGGING ANNOUNCEMENTS: ");
