@@ -141,8 +141,9 @@ public class UserServiceImpl implements UserService {
 			throw new BadRequestException("No active use with given username");
 		}
 		User userToDelete = optionalUser.get();
-		
-		return null;
+		userToDelete.setActive(false);
+		userRepository.saveAndFlush(userToDelete);
+		return basicUserMapper.entityToBasicUserDto(userToDelete);
 	}
 
 }
