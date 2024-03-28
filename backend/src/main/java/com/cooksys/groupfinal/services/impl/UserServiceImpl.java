@@ -3,6 +3,7 @@ package com.cooksys.groupfinal.services.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -93,15 +94,28 @@ public class UserServiceImpl implements UserService {
 		user.setStatus("PENDING");
 
 		Set<Company> companies = user.getCompanies();
-		companies.add(company);
-		user.setCompanies(companies);
-
-		userRepository.saveAndFlush(user);
-
-		Set<User> users = company.getEmployees();
-		users.add(user);
-		company.setEmployees(users);
-		companyRepository.saveAndFlush(company);
+		if(user.isAdmin()) {
+			Set<Company> allCompanies = new HashSet<>(companyRepository.findAll());
+			user.setCompanies(allCompanies);
+			userRepository.saveAndFlush(user);
+			for(Company comp : allCompanies) {
+				Set<User> users = comp.getEmployees();
+				users.add(user);
+				comp.setEmployees(users);
+			}
+			companyRepository.saveAllAndFlush(allCompanies);
+		}
+		else {
+			companies.add(company);
+			user.setCompanies(companies);
+			userRepository.saveAndFlush(user);
+			Set<User> users = company.getEmployees();
+			users.add(user);
+			company.setEmployees(users);
+			companyRepository.saveAndFlush(company);
+		}
+		
+		
 		return fullUserMapper.entityToFullUserDto(user);
 	}
 
