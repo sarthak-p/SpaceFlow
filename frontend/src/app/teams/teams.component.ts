@@ -29,8 +29,9 @@ export class TeamsComponent {
     else {
       //this.fetchAllTeams();
     }
-
   }
+
+
 
   // fetchTeamsByCompanyId(): void {
   //   this.teamService.getTeamsByCompanyId(this.companyId).subscribe(

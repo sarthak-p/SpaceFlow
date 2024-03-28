@@ -34,7 +34,7 @@
             <div class="form-entry">
                 <div class="addname-container">
                     <div *ngFor="let entry of entries" class="entry">
-                        <p>{{ entry.profile.firstName }}</p> <!-- Display profile.firstName -->
+                        <p>{{ entry.profile.firstName }}</p> 
                         <button (click)="removeEntry(entry)">Remove</button>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
 
         <div class="button-container">
             <button routerLink="/teams" class="back-button">Back</button>
-            <button class="submit-button" (click)="onSubmit()">Submit</button>
+            <button class="submit-button" (click)="onSubmit()" routerLink="/teams">Submit</button>
         </div>
     </div>
 </body>
