@@ -11,7 +11,6 @@ import { AuthService } from '../auth.service';
 })
 export class CreateProjectComponent {
   newProj: Project = {
-    id: 9999, // This should be ignored by the backend
     name: "Team name not provided",
     description: "Team desc not provided",
     active: false,

@@ -1,5 +1,5 @@
 export interface Project {
-  id: number;
+  id?: number | undefined;
   name: string;
   description: string;
   active: boolean;
