@@ -2,7 +2,8 @@ package com.cooksys.groupfinal.controllers;
 
 import java.util.List;
 import java.util.Set;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
 	private final UserService userService;
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
 	// @PostMapping("/{companyId}")
 	// public FullUserDto createUser(@RequestBody BasicUserDto basicUserDto, @PathVariable Long companyId) {
