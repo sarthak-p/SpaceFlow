@@ -4,6 +4,9 @@ import { Team } from '../team.model';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { ProjectService } from '../project.service';
+import { Observable } from 'rxjs';
+import { Project } from '../project.model';
 
 @Component({
   selector: 'app-teams',
@@ -16,8 +19,9 @@ export class TeamsComponent {
   companyId: number = 6;
   userId: number = 21; // Should be updated depending on who is logged in
   admin: boolean = false; // Should be updated depending on who is logged in
+  numberOfProjectsMap: Map<number, number> = new Map<number, number>();
 
-  constructor(private authService: AuthService, private router: Router, private teamService: TeamService, private userService: UserService) {
+  constructor(private authService: AuthService, private router: Router, private teamService: TeamService, private userService: UserService, private projectService: ProjectService) {
 
   }
 
@@ -50,8 +54,18 @@ export class TeamsComponent {
     this.userService.getTeamsByUserId(this.userId).subscribe(
       (teams: Team[]) => {
         this.teams = teams;
-        //console.log("LOGGING TEAMS: ");
-        //console.log(teams);
+        for (let team of teams) {
+          console.log("LOOP");
+          let count = 0;
+          this.fetchProjectsByTeamId(team.id).subscribe((projects: Project[]) => {
+            // Assign the length of the projects array to the projectCount variable
+            count = projects.length;
+            this.numberOfProjectsMap.set(team.id, count);
+            console.log("UPDATED MAPPING");
+          });
+        }
+        console.log("PROJECTS MAP");
+        console.log(this.numberOfProjectsMap);
       },
       (error: any) => {
         console.error('Error fetching teams from company:', error);
@@ -76,5 +90,10 @@ export class TeamsComponent {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  fetchProjectsByTeamId(teamId: number): Observable<Project[]> {
+    return this.projectService.getProjectsByTeamId(teamId);
+  }
+      
 
 }
