@@ -24,6 +24,7 @@ h1 {
     font-family: Arial, sans-serif;
     margin: 25px;
     color: #9EC8B9;
+    font-size: 50px; 
 }
 
 h2 {
@@ -118,7 +119,7 @@ p {
     padding: 20px;
     margin: 10px;
     background-color: #9979e2; 
-    border: 3px solid #616161;
+    border: 1px solid #616161;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -137,7 +138,7 @@ p {
 
 .team-member {
     background-color: #dbdbdb; 
-    border: 3px solid #666666;
+    border: 1px solid #666666;
     border-radius: 10px;
     display: inline-block;
 }
@@ -208,7 +209,7 @@ p {
 
 .addedname {
     background-color: #dbdbdb; 
-    border: 3px solid #666666;
+    border: 1px solid #666666;
     border-radius: 10px;
     margin:0px;
     display: inline-block;
