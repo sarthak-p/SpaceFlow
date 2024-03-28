@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
 		}
 
 		Company company = companyRepository.findById(companyId).get();
-		User user = basicUserMapper.userRequestDtoToEntity(userRequestDto);
+		User user = fullUserMapper.requestDtoToEntity(userRequestDto);
 
 		user.setActive(true);
 		user.setStatus("PENDING");
