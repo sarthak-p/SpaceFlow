@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user.model';
+import { Team } from './team.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,11 @@ export class UserService {
 addUserToCompany(companyId: number, user: any): Observable<any> {
   const url = `http://localhost:8080/users/${companyId}`;
   return this.http.post(url, user);
+}
+
+getTeamsByUserId(userId: number): Observable<Team[]> {
+  const url = `http://localhost:8080/users/${userId}/teams`;
+  return this.http.get<Team[]>(url);
 }
 
 
