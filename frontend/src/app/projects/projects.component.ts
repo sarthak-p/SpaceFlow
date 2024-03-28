@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from '../project.service'; 
 import { Project } from '../project.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-projects',
@@ -11,10 +12,11 @@ import { Project } from '../project.model';
 export class ProjectsComponent {
 
   projects: Project[] = [];
+  
 
   teamId: string = "";
 
-  constructor(private route: ActivatedRoute, private projectService: ProjectService) {
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute, private projectService: ProjectService) {
     // this.projects = [
     //   {
     //     name: 'Project 1',
@@ -51,6 +53,11 @@ export class ProjectsComponent {
     });
     this.fetchProjectsByTeamId();
 
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

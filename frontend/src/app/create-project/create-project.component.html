@@ -1,21 +1,20 @@
 <body>
-
-    <h2>Create a Project</h2>
-    <button routerLink="/teams">Back</button>
     <div class="form-container">
-    <form action="#" method="post">
-      <div class="form-entry">
-        <label for="title">Project Name:</label><br>
-        <input type="text" id="title" name="title" class="announcement-input" [(ngModel)]="name"><br>
-      </div>
-      <div class="form-entry">
-        <label for="message">Description:</label><br>
-        <input type="text" id="message" name="message" class="announcement-input" [(ngModel)]="description"><br>
-      </div>
-      <div class="form-entry">
-        <button class="submit-button" (click)="onSubmit()">Submit</button>
-      </div>
-    </form>
+      <h2>Create a Project</h2>
+      <form>
+        <div class="form-entry">
+          <label for="title">Project Name:</label>
+          <input type="text" id="title" name="title" class="announcement-input" [(ngModel)]="name">
+        </div>
+        <div class="form-entry">
+          <label for="message">Description:</label>
+          <textarea id="message" name="message" class="announcement-input" [(ngModel)]="description"></textarea>
+        </div>
+        <div class="button-group">
+          <button type="button" class="back-button" routerLink="/teams">Back</button>
+          <button type="submit" class="submit-button" (click)="onSubmit()">Submit</button>
+        </div>
+      </form>
     </div>
     
 </body>

@@ -1,11 +1,11 @@
 
 <body>
     <div class="navbar">
-        <a routerLink="/">Home</a>
-        <a routerLink="/company">Company</a>
-        <a routerLink="/teams">Teams</a>
-        <a routerLink="/users">Users</a>
-        <a routerLink="/login">Logout</a>
+      <a [routerLink]="['/']">Home</a>
+      <a [routerLink]="['/select-company']">Company</a>
+      <a [routerLink]="['/teams']">Teams</a>
+      <a [routerLink]="['/user-registry']">Users</a>
+      <a [routerLink]="['/login']" (click)="logout()">Logout</a>
     </div>
   
     <h1 class="text-center">Projects for Team {{teamId}}</h1>

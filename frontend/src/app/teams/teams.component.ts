@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TeamService } from '../team.service';
 import { Team } from '../team.model';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teams',
@@ -12,7 +14,7 @@ export class TeamsComponent {
   teams: Team[] = [];
   companyId: number = 6;
 
-  constructor(private teamService: TeamService) {
+  constructor(private authService: AuthService, private router: Router, private teamService: TeamService) {
 
   }
 
@@ -33,6 +35,11 @@ export class TeamsComponent {
         console.error('Error fetching teams from company:', error);
       }
     );
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

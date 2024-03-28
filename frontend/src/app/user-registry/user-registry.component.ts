@@ -57,4 +57,8 @@ export class UserRegistryComponent implements OnInit {
       console.error('Selected Company ID is undefined.');
     }
   }
+
+  logout() {
+    this.authService.logout();
+  }
 }

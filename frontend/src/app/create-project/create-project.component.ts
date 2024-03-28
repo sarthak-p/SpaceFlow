@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../project.model';
 import { ProjectService } from '../project.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-create-project',
@@ -23,7 +24,7 @@ export class CreateProjectComponent {
   currentCompanyId: number = 6; // This should be updated by a global app variable on init
   teamId: string = ""; // Updated from params on init
 
-  constructor(private route: ActivatedRoute, private projectService: ProjectService) { }
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute, private projectService: ProjectService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -37,6 +38,11 @@ export class CreateProjectComponent {
     this.newProj.name = this.name;
     this.newProj.description = this.description;
     this.projectService.createProject(parseInt(this.teamId), this.newProj);
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }
