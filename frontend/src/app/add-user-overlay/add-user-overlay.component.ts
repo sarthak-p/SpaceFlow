@@ -40,7 +40,6 @@ export class AddUserOverlayComponent {
         credentials: this.user.credentials,
         isAdmin: this.user.isAdmin
       };
-      console.log('Submission data:', submission);
       this.userService.addUserToCompany(companyId, submission).subscribe({
         next: (response) => {
           console.log('User added successfully', response);
