@@ -79,7 +79,7 @@ export class CreateTeamComponent {
     this.newTeam.description = this.description;
     this.newTeam.teammates = this.entries;
     this.teamService.createTeam(this.currentCompanyId, this.newTeam);
-    this.router.navigate(['/teams']);
+    //this.router.navigate(['/teams']); // Sometimes the new team doesn't load quick enough, and you have to refresh after redirecting
   }
 
 }
