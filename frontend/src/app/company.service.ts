@@ -12,11 +12,7 @@ export class CompanyService {
   constructor(private http: HttpClient) { }
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(`${this.apiUrl}/list-for-user`); // Adjust the endpoint as needed
-  }
-
-  getCompanyDetails(companyId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${companyId}`);
+    return this.http.get<Company[]>('http://localhost:8080/company');
   }
 
   getCompaniesForUser(userId: number): Observable<Company[]> {

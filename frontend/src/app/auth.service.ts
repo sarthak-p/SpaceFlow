@@ -34,4 +34,10 @@ export class AuthService {
     this.currentUserSubject.next(null);
     this.selectedCompanyId.next(null);
   }
+
+  isAdmin(): boolean {
+    return this.currentUserSubject.value?.admin || false;
+  }
+
+
 }
