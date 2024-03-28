@@ -90,7 +90,7 @@ public class UserServiceImpl implements UserService {
 		User user = basicUserMapper.userRequestDtoToEntity(userRequestDto);
 
 		user.setActive(true);
-		user.setStatus("JOINED");
+		user.setStatus("PENDING");
 
 		Set<Company> companies = user.getCompanies();
 		companies.add(company);
