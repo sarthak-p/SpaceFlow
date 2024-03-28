@@ -59,6 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
 		
 		project.setName(editProject.getName());
 		project.setDescription(editProject.getDescription());
+		project.setActive(editProject.isActive());
 		projectRepository.saveAndFlush(project);
 		return projectMapper.entityToDto(project);
 	}
