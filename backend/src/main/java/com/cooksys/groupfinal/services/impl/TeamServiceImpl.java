@@ -83,6 +83,8 @@ public class TeamServiceImpl implements TeamService {
 		
 		Set<Project> projects = teamToUse.getProjects();
 		
+		projects.removeIf(project -> !project.isActive());
+		
 		return projectMapper.entitiesToDtos(projects);
 	}
 
