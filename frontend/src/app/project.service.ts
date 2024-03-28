@@ -10,6 +10,10 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
+  getProjectsByTeamId(teamId: number): Observable<Project[]> {
+    return this.http.get<Project[]>(`http://localhost:8080/team/${teamId}/projects`);
+  }
+
   createProject(teamId: number, project: Project){
     this.http.post<any>(`http://localhost:8080/projects/${teamId}`, project).subscribe(
       (data) => {

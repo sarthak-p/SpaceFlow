@@ -27,7 +27,7 @@ export class HomeComponent {
         console.log(announcements);
       },
       (error: any) => {
-          console.error('Error fetching teams from company:', error);
+          console.error('Error fetching announcements from company:', error);
       }
     );
   }
