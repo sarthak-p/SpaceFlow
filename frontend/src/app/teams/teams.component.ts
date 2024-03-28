@@ -21,7 +21,6 @@ export class TeamsComponent {
   ngOnInit(): void {
     console.log("TEAMS INIT")
     this.fetchTeamsByCompanyId();
-
   }
 
   fetchTeamsByCompanyId(): void {

@@ -34,7 +34,7 @@
     </div>
     <button *ngIf="isAdmin" (click)="toggleOverlay()" class="add-user-button">Add User</button>
     <div *ngIf="!isAdmin">
-        You do not have permission to add users.
+        <p class="subheading">You do not have permission to add users</p>
     </div>
 </div>
 
