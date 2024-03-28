@@ -1,6 +1,7 @@
 package com.cooksys.groupfinal.controllers;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,11 @@ public class ProjectController {
 	@GetMapping("/{projectId}")
 	public ProjectDto getProject(@PathVariable Long projectId) {
 		return projectService.getProject(projectId);
+	}
+	
+	@DeleteMapping("/{projectId")
+	public ProjectDto deleteProject(@PathVariable Long projectId){
+		return projectService.deleteProject(projectId);
 	}
 
 }

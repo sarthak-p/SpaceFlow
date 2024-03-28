@@ -75,4 +75,24 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectMapper.entityToDto(optionalProject.get());
 	}
 
+
+	@Override
+	public ProjectDto deleteProject(Long projectId) {
+		Optional<Project> optionalProject = projectRepository.findById(projectId);
+		if(optionalProject.isEmpty()) {
+			throw new NotFoundException("No such project with given ID");
+		}
+		
+		Project projectToDelete = optionalProject.get();
+		
+		if(!projectToDelete.isActive()) {
+			throw new BadRequestException("Project is already inactive");
+		}
+		
+		projectToDelete.setActive(false);
+		
+		projectRepository.saveAndFlush(projectToDelete);
+		return projectMapper.entityToDto(projectToDelete);
+	}
+
 }

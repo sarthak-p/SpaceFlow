@@ -10,4 +10,6 @@ public interface ProjectService {
 
 	ProjectDto getProject(Long projectId);
 
+	ProjectDto deleteProject(Long projectId);
+
 }
