@@ -27,15 +27,14 @@
 
             <div class="form-entry">
                 <label for="dropdown">Select members:</label>
-                <select #dropdown (change)="onDropdownChange(dropdown.value)">
-                    <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+                <select [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" (change)="onDropdownChange(selectedOption)">
+                    <option *ngFor="let option of options" [ngValue]="option">{{ option.profile.firstName }}</option>
                 </select>
             </div>
-
             <div class="form-entry">
                 <div class="addname-container">
                     <div *ngFor="let entry of entries" class="entry">
-                        <p>{{ entry }}</p>
+                        <p>{{ entry.profile.firstName }}</p> <!-- Display profile.firstName -->
                         <button (click)="removeEntry(entry)">Remove</button>
                     </div>
                 </div>

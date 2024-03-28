@@ -25,4 +25,15 @@ export class TeamService {
   return this.http.get<Team[]>(`http://localhost:8080/company/${companyId}/teams`);
   }
 
+  createTeam(companyId: number, team: Team){
+    this.http.post<any>(`http://localhost:8080/team/${companyId}`, team).subscribe(
+      (data) => {
+        console.log(data); 
+      },
+      (error) => {
+        console.error('Error occurred:', error);
+      }
+    );
+  }
+
 }
