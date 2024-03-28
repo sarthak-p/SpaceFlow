@@ -58,7 +58,6 @@ export class TeamsComponent {
           console.log("LOOP");
           let count = 0;
           this.fetchProjectsByTeamId(team.id).subscribe((projects: Project[]) => {
-            // Assign the length of the projects array to the projectCount variable
             count = projects.length;
             this.numberOfProjectsMap.set(team.id, count);
             console.log("UPDATED MAPPING");
@@ -77,8 +76,17 @@ export class TeamsComponent {
     this.teamService.getAllTeams().subscribe(
       (teams: Team[]) => {
         this.teams = teams;
-        //console.log("LOGGING TEAMS: ");
-        //console.log(teams);
+        for (let team of teams) {
+          console.log("LOOP");
+          let count = 0;
+          this.fetchProjectsByTeamId(team.id).subscribe((projects: Project[]) => {
+            count = projects.length;
+            this.numberOfProjectsMap.set(team.id, count);
+            console.log("UPDATED MAPPING");
+          });
+        }
+        console.log("PROJECTS MAP");
+        console.log(this.numberOfProjectsMap);
       },
       (error: any) => {
         console.error('Error fetching all teams:', error);

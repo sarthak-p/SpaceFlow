@@ -16,7 +16,7 @@
      <div class="team-container" *ngFor="let team of teams">
         <div class="team" [routerLink]="['/projects', team.id]">
             <h2>{{team.name}}</h2>
-            <!-- <h3># of projects: {{number of projects}}</h3> -->
+            <h3># of projects: {{ numberOfProjectsMap.get(team.id) }}</h3>
             <p>{{team.description}}</p>
             <div class="team-member-container" *ngFor="let member of team.teammates">
                 <div class="team-member">
