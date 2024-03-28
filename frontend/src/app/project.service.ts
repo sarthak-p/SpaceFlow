@@ -20,4 +20,20 @@ export class ProjectService {
       }
     );
   }
+
+  editProject(projId: number, project: Project){
+    this.http.patch<any>(`http://localhost:8080/projects/${projId}`, project).subscribe(
+      (data) => {
+        console.log(data); 
+      },
+      (error) => {
+        console.error('Error occurred:', error);
+      }
+    );
+  }
+
+  // getProject(projId: number): Observable<Project[]>{
+  //   return this.http.get<any>(`http://localhost:8080/projects/${projId}`);
+  // }
+
 }
