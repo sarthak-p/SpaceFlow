@@ -31,7 +31,9 @@ export class ProjectsComponent {
     //     id: 2
     //   }
     // ];
-
+    this.route.params.subscribe(params => {
+      console.log('Team ID from route:', params['teamId']);
+    }); 
   }
 
   fetchProjectsByTeamId(): void {
@@ -59,5 +61,12 @@ export class ProjectsComponent {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  trimTeamId(id: string): string {
+  if (id.startsWith('1')) {
+    return id.substring(1);
+  }
+  return id;
+}
 
 }

@@ -4,6 +4,8 @@ import { Team } from '../team.model';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+  import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-teams',
@@ -17,8 +19,7 @@ export class TeamsComponent {
   userId: number = 21; // Should be updated depending on who is logged in
   admin: boolean = false; // Should be updated depending on who is logged in
 
-  constructor(private authService: AuthService, private router: Router, private teamService: TeamService, private userService: UserService) {
-
+  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router, private teamService: TeamService, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -30,7 +31,6 @@ export class TeamsComponent {
       this.fetchAllTeams();
     }
   }
-
 
 
   // fetchTeamsByCompanyId(): void {
