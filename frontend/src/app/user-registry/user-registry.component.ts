@@ -49,9 +49,7 @@ export class UserRegistryComponent implements OnInit {
 
   fetchUsers() {
     if (this.selectedCompanyId) {
-      console.log('Fetching users for company ID:', this.selectedCompanyId); // Log company ID
       this.userService.getUsersByCompanyId(this.selectedCompanyId).subscribe(users => {
-        console.log('Fetched users:', users); // Log fetched users
         this.users = users;
         this.changeDetectorRef.detectChanges();
       }, error => console.error('Error fetching users:', error));

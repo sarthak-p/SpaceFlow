@@ -24,13 +24,11 @@ export class UserService {
   
   getUsersByCompanyId(companyId: number): Observable<User[]> {
   const url = `http://localhost:8080/company/${companyId}/users`;
-  console.log('Fetching users from URL:', url); // Log the URL being hit
   return this.http.get<User[]>(url);
 }
 
 addUserToCompany(companyId: number, user: any): Observable<any> {
   const url = `http://localhost:8080/users/${companyId}`;
-  console.log('Adding user to company with URL:', url, 'User data:', user); // Log URL and data
   return this.http.post(url, user);
 }
 
