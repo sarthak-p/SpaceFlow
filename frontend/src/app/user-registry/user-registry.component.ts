@@ -16,8 +16,6 @@ export class UserRegistryComponent implements OnInit {
   showAddUserOverlay = false; 
   isAdmin = false;
 
-
-
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private userService: UserService,
@@ -70,4 +68,32 @@ export class UserRegistryComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
+
+  deleteUser(username: string | undefined): void {
+  if (typeof username !== 'string') {
+    console.error('Username is undefined, cannot delete user.');
+    return;
+  }
+  
+  if (!confirm(`Are you sure you want to delete the user: ${username}?`)) {
+    return;
+  }
+
+
+
+  this.userService.deleteUser(username).subscribe({
+    next: () => {
+      console.log(`User ${username} deleted successfully.`);
+      this.fetchUsersByCompanyId(this.selectedCompanyId!); 
+    },
+    error: (error) => {
+      console.error(`Error deleting user: ${error}`);
+    }
+  });
+}
+
+
+
+
+
 }

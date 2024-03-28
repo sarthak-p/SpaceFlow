@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { ProjectService } from '../project.service';
 import { Observable } from 'rxjs';
 import { Project } from '../project.model';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-teams',
@@ -21,9 +23,9 @@ export class TeamsComponent {
   admin: boolean = false; // Should be updated depending on who is logged in
   numberOfProjectsMap: Map<number, number> = new Map<number, number>();
 
-  constructor(private authService: AuthService, private router: Router, private teamService: TeamService, private userService: UserService, private projectService: ProjectService) {
 
-  }
+  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router, private teamService: TeamService, private userService: UserService, private projectService: ProjectService) {}
+
 
   ngOnInit(): void {
     console.log("TEAMS INIT")
@@ -34,7 +36,6 @@ export class TeamsComponent {
       this.fetchAllTeams();
     }
   }
-
 
 
   // fetchTeamsByCompanyId(): void {

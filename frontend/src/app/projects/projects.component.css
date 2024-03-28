@@ -101,3 +101,7 @@ h1 {
     cursor: pointer;
     font-size: 16px;
 }
+
+.edit-button:hover {
+    background-color: #008170;
+}

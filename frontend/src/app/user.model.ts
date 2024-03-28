@@ -5,6 +5,9 @@ export interface User {
     lastName: string;
     email: string;
   };
+  credentials: {
+    username: string;
+  };
   admin: boolean;
   active: boolean;
   status: string;
