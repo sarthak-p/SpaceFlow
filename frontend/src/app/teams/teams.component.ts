@@ -27,7 +27,7 @@ export class TeamsComponent {
       this.fetchTeamsByUserId();
     }
     else {
-      //this.fetchAllTeams();
+      this.fetchAllTeams();
     }
   }
 
@@ -55,6 +55,19 @@ export class TeamsComponent {
       },
       (error: any) => {
         console.error('Error fetching teams from company:', error);
+      }
+    );
+  }
+
+  fetchAllTeams(): void {
+    this.teamService.getAllTeams().subscribe(
+      (teams: Team[]) => {
+        this.teams = teams;
+        //console.log("LOGGING TEAMS: ");
+        //console.log(teams);
+      },
+      (error: any) => {
+        console.error('Error fetching all teams:', error);
       }
     );
   }

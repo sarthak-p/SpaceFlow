@@ -25,6 +25,10 @@ export class TeamService {
   return this.http.get<Team[]>(`http://localhost:8080/company/${companyId}/teams`);
   }
 
+  getAllTeams(): Observable<Team[]> {
+    return this.http.get<Team[]>(`http://localhost:8080/team`);
+    }
+
   createTeam(companyId: number, team: Team){
     this.http.post<any>(`http://localhost:8080/team/${companyId}`, team).subscribe(
       (data) => {
