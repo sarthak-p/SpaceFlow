@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { User } from '../user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-registry',
@@ -12,23 +13,31 @@ import { AuthService } from '../auth.service';
 export class UserRegistryComponent implements OnInit {
   users: User[] = [];
   selectedCompanyId?: number;
+  showAddUserOverlay = false; 
+  isAdmin = false;
+
 
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private userService: UserService,
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router 
   ) { }
   
-  showAddUserOverlay = false;
 
-  toggleOverlay(): void {
-    this.showAddUserOverlay = !this.showAddUserOverlay;
-  }
+  toggleOverlay() {
+    if (this.isAdmin) {
+      this.showAddUserOverlay = !this.showAddUserOverlay;
+      } else {
+        console.error("You do not have permission to add users.");
+      }
+    }
 
   
   ngOnInit() {
+    this.isAdmin = this.authService.isAdmin(); 
     this.authService.getSelectedCompanyId().subscribe(companyId => {
       if (companyId) {
         this.selectedCompanyId = companyId;
