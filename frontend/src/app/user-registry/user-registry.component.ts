@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,9 +15,10 @@ export class UserRegistryComponent implements OnInit {
 
 
   constructor(
+    private changeDetectorRef: ChangeDetectorRef,
     private userService: UserService,
     private route: ActivatedRoute,
-     private authService: AuthService
+    private authService: AuthService
   ) { }
   
   showAddUserOverlay = false;
@@ -34,15 +35,26 @@ export class UserRegistryComponent implements OnInit {
         this.fetchUsersByCompanyId(companyId);
       } else {
         console.error('Company ID is missing');
-        // Optional: Redirect or handle the missing ID scenario
+       
       }
     });
   }
 
   fetchUsersByCompanyId(companyId: number) {
     this.userService.getUsersByCompanyId(companyId).subscribe(users => {
-      console.log(users); 
+      console.log(users);
       this.users = users;
     }, error => console.error(error));
+  }
+
+  fetchUsers() {
+    if (this.selectedCompanyId) {
+      this.userService.getUsersByCompanyId(this.selectedCompanyId).subscribe(users => {
+        this.users = users;
+        this.changeDetectorRef.detectChanges();
+      }, error => console.error('Error fetching users:', error));
+    } else {
+      console.error('Selected Company ID is undefined.');
+    }
   }
 }
