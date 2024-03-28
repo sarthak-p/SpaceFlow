@@ -13,14 +13,6 @@ export class UserService {
   getUsers(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
-
-//   getUsersByCompanyId(companyId: number): Observable<User[]> {
-//     return this.http.get<User[]>(`http://localhost:8080/company/${companyId}/users`);
-//   }
-
-//   addUserToCompany(companyId: number, user: any): Observable<any> {
-//   return this.http.post(`http://localhost:8080/users/${companyId}`, user);
-  // }
   
   getUsersByCompanyId(companyId: number): Observable<User[]> {
   const url = `http://localhost:8080/company/${companyId}/users`;
