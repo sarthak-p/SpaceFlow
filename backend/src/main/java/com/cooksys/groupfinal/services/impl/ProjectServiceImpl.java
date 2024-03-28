@@ -63,4 +63,15 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectMapper.entityToDto(project);
 	}
 
+
+	@Override
+	public ProjectDto getProject(Long projectId) {
+		Optional<Project> optionalProject = projectRepository.findById(projectId);
+		if(optionalProject.isEmpty()) {
+			throw new NotFoundException("No such project with ID");
+		}
+		
+		return projectMapper.entityToDto(optionalProject.get());
+	}
+
 }
