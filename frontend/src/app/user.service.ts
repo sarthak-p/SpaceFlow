@@ -30,5 +30,10 @@ getTeamsByUserId(userId: number): Observable<Team[]> {
   return this.http.get<Team[]>(url);
 }
 
+  deleteUser(username: string): Observable<any> {
+    console.log('Attempting to delete user:', username);
+    const url = `http://localhost:8080/users/${username}`;
+    return this.http.delete(url);
+  }
 
 }

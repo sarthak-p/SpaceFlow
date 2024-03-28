@@ -4,31 +4,24 @@
     <a routerLink="/select-company">Company</a>
     <a routerLink="/teams">Teams</a>
     <a routerLink="/user-registry">Users</a>
-    <a (click)="logout()" routerLink="/login">Logout</a>
+    <a routerLink="/login" (click)="logout()">Logout</a>
   </div>
 
-  <div class="container">
-    <h1>Projects for Team {{teamId || 'Placeholder Team ID'}}</h1>
+<div class="container">
+  <h1>Projects for Team {{teamId}}</h1>
 
-    <div class="projects-box">
-      <div class="project-card">
-        <h2>Project Alpha</h2>
-        <p>Description: An initial project to demonstrate the layout.</p>
-        <p>Active: Yes</p>
-        <button class="edit-button" [routerLink]="['/edit-project', teamId, '1']">Edit Project</button>
-      </div>
-
-      <div class="project-card">
-        <h2>Project Beta</h2>
-        <p>Description: Another example project with more details.</p>
-        <p>Active: No</p>
-        <button class="edit-button" [routerLink]="['/edit-project', teamId, '2']">Edit Project</button>
-      </div>
-    </div>
-
-    <div class="button-group">
-      <button routerLink="/teams" class="back-button">Back</button>
-      <button [routerLink]="['/create-project', teamId]" class="create-button">Create Project</button>
+  <div class="projects-box">
+    <div class="project-card" *ngFor="let project of projects">
+      <h2>{{ project.name }}</h2>
+      <p>Description: {{ project.description }}</p>
+      <p>Active: {{ project.active ? 'Yes' : 'No' }}</p>
+      <button class="edit-button" [routerLink]="['/edit-project', teamId, project.id]">Edit Project</button>
     </div>
   </div>
+
+  <div class="button-group">
+    <button routerLink="/teams" class="back-button">Back</button>
+    <button [routerLink]="['/create-project', teamId]" class="create-button">Create Project</button>
+  </div>
+</div>
 </body>
