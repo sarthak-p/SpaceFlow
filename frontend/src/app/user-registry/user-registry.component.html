@@ -36,4 +36,5 @@
     <button class="add-user-button" (click)="toggleOverlay()">Add User</button>
 </div>
 
-<app-add-user-overlay *ngIf="showAddUserOverlay" (close)="toggleOverlay()"></app-add-user-overlay>
+<app-add-user-overlay *ngIf="showAddUserOverlay" (close)="toggleOverlay()"
+    (userAdded)="fetchUsers()"></app-add-user-overlay>

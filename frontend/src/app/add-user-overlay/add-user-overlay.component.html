@@ -4,27 +4,30 @@
             <h2>Add User</h2>
             <button class="close-button" (click)="onClose()">X</button>
         </header>
-        <form>
+        <form (ngSubmit)="onSubmit()">
             <div class="form-row">
-                <input type="text" placeholder="First Name" name="firstName">
-                <input type="text" placeholder="Last Name" name="lastName">
+                <input type="text" placeholder="First Name" name="firstName" [(ngModel)]="user.profile.firstName"
+                    required>
+                <input type="text" placeholder="Last Name" name="lastName" [(ngModel)]="user.profile.lastName" required>
             </div>
             <div class="form-row">
-                <input type="email" placeholder="Email" name="email">
-                <input type="tel" placeholder="Phone" name="phone">
+                <input type="email" placeholder="Email" name="email" [(ngModel)]="user.profile.email" required>
+                <input type="tel" placeholder="Phone" name="phone" [(ngModel)]="user.profile.phone" required>
             </div>
             <div class="form-row">
-                <input type="password" placeholder="Password" name="password">
-                <input type="password" placeholder="Confirm Password" name="confirmPassword">
+                <input type="text" placeholder="Username" name="username" [(ngModel)]="user.credentials.username"
+                    required>
+                <input type="password" placeholder="Password" name="password" [(ngModel)]="user.credentials.password"
+                    required>
             </div>
             <div class="form-row">
                 <label>Make user an admin role?</label>
-                <select name="isAdmin">
-                    <option value="true">True</option>
-                    <option value="false">False</option>
+                <select name="isAdmin" [(ngModel)]="user.isAdmin">
+                    <option [value]="true">True</option>
+                    <option [value]="false">False</option>
                 </select>
             </div>
-            <button type="submit" class="submit-button" (click)="onClose()">Submit</button>
+            <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
 </div>

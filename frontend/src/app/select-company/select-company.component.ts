@@ -32,6 +32,7 @@ export class SelectCompanyComponent implements OnInit {
   }
 
   onSelectCompany(companyId?: number): void {
+    console.log(`Selected Company ID: ${companyId}`); 
     if (companyId) {
       this.authService.setSelectedCompanyId(companyId);
       this.router.navigate(['/home', companyId]); 
