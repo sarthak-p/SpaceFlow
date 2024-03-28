@@ -7,6 +7,15 @@
           <label for="title">Title:</label><br>
           <input type="text" id="title" name="title" class="announcement-input title-input" placeholder="Enter title" [(ngModel)]="title">
         </div>
+
+        <div class="form-entry">
+          <label for="message">Select Company</label><br>
+          <select [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" (change)="onDropdownChange(selectedOption)">
+            <option *ngFor="let company of companies" [ngValue]="company">{{ company.name }}</option>
+        </select>
+        </div>
+        <br>
+
         <div class="form-entry">
           <label for="message">Message:</label><br>
           <textarea id="message" name="message" class="announcement-input" placeholder="Enter message" [(ngModel)]="description"></textarea>
