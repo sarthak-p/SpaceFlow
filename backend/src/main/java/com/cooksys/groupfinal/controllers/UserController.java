@@ -17,6 +17,7 @@ import com.cooksys.groupfinal.dtos.BasicUserDto;
 import com.cooksys.groupfinal.dtos.CompanyDto;
 import com.cooksys.groupfinal.dtos.CredentialsDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
+import com.cooksys.groupfinal.dtos.TeamDto;
 import com.cooksys.groupfinal.dtos.UserRequestDto;
 import com.cooksys.groupfinal.services.UserService;
 
@@ -50,5 +51,10 @@ public class UserController {
 	@GetMapping("/{id}/companies")
 	public Set<CompanyDto> getCompanies(@PathVariable Long id) {
 		return userService.getCompanies(id);
+	}
+	
+	@GetMapping("/{id}/teams")
+	public Set<TeamDto> getTeams(@PathVariable Long id) {
+		return userService.getTeams(id);
 	}
 }

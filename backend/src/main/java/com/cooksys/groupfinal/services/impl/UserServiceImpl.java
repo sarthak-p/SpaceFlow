@@ -14,10 +14,12 @@ import com.cooksys.groupfinal.dtos.BasicUserDto;
 import com.cooksys.groupfinal.dtos.CompanyDto;
 import com.cooksys.groupfinal.dtos.CredentialsDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
+import com.cooksys.groupfinal.dtos.TeamDto;
 import com.cooksys.groupfinal.dtos.UserRequestDto;
 import com.cooksys.groupfinal.entities.Company;
 import com.cooksys.groupfinal.entities.Credentials;
 import com.cooksys.groupfinal.entities.Profile;
+import com.cooksys.groupfinal.entities.Team;
 import com.cooksys.groupfinal.entities.User;
 import com.cooksys.groupfinal.exceptions.BadRequestException;
 import com.cooksys.groupfinal.exceptions.NotAuthorizedException;
@@ -26,7 +28,9 @@ import com.cooksys.groupfinal.mappers.BasicUserMapper;
 import com.cooksys.groupfinal.mappers.CompanyMapper;
 import com.cooksys.groupfinal.mappers.CredentialsMapper;
 import com.cooksys.groupfinal.mappers.FullUserMapper;
+import com.cooksys.groupfinal.mappers.TeamMapper;
 import com.cooksys.groupfinal.repositories.CompanyRepository;
+import com.cooksys.groupfinal.repositories.TeamRepository;
 import com.cooksys.groupfinal.repositories.UserRepository;
 import com.cooksys.groupfinal.services.UserService;
 
@@ -45,6 +49,9 @@ public class UserServiceImpl implements UserService {
 
 	private final CompanyRepository companyRepository;
 	private final CompanyMapper companyMapper;
+	
+	private final TeamRepository teamRepository;
+	private final TeamMapper teamMapper;
 
 	private User findUser(String username) {
 		Optional<User> user = userRepository.findByCredentialsUsernameAndActiveTrue(username);
@@ -117,6 +124,14 @@ public class UserServiceImpl implements UserService {
 		
 		
 		return fullUserMapper.entityToFullUserDto(user);
+	}
+
+	@Override
+	public Set<TeamDto> getTeams(Long id) {
+		
+		Set<Team> userTeams = teamRepository.findByTeammatesId(id);
+		
+		return teamMapper.entitiesToDtos(userTeams);
 	}
 
 }

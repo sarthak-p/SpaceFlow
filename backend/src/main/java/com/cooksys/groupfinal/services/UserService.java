@@ -7,6 +7,7 @@ import com.cooksys.groupfinal.dtos.BasicUserDto;
 import com.cooksys.groupfinal.dtos.CompanyDto;
 import com.cooksys.groupfinal.dtos.CredentialsDto;
 import com.cooksys.groupfinal.dtos.FullUserDto;
+import com.cooksys.groupfinal.dtos.TeamDto;
 import com.cooksys.groupfinal.dtos.UserRequestDto;
 
 public interface UserService {
@@ -18,4 +19,6 @@ public interface UserService {
 	//FullUserDto createUser(BasicUserDto basicUserDto, Long companyId);
 	
 	FullUserDto createUser(UserRequestDto userRequestDto, Long companyId);
+
+	Set<TeamDto> getTeams(Long id);
 }
