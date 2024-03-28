@@ -8,10 +8,13 @@
         <a routerLink="/login">Logout</a>
     </div>
   
+    <button routerLink="/teams" class="back-button">Back</button>
     <h1 class="text-center">Projects for Team {{teamId}}</h1>
   
-    <button [routerLink]="['/create-project', teamId]">Create Project</button>
-  
+    <div class="create-button-container">
+    <button class="create-project" [routerLink]="['/create-project', teamId]">Create Project</button>
+    </div>
+
     <div class="announcement-container" *ngFor="let project of projects">
       <div class="announcement">
         <h2>{{ project.name }}</h2>
