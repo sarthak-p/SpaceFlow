@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cooksys.groupfinal.dtos.ProjectDto;
 import com.cooksys.groupfinal.dtos.TeamDto;
+import com.cooksys.groupfinal.entities.Team;
 import com.cooksys.groupfinal.services.TeamService;
 
 import lombok.RequiredArgsConstructor;
@@ -38,4 +39,10 @@ public class TeamController {
 	public Set<ProjectDto> getProjects(@PathVariable Long id) {
 		return teamService.getProjects(id);
 	}
+	
+	@GetMapping
+	public Set<TeamDto> getAllTeams(){
+		return teamService.getAllTeams();
+	}
+	
 }

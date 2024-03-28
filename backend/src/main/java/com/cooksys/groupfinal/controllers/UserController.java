@@ -57,4 +57,9 @@ public class UserController {
 	public Set<TeamDto> getTeams(@PathVariable Long id) {
 		return userService.getTeams(id);
 	}
+	
+	@DeleteMapping("/{username}")
+	public BasicUserDto deleteUser(@PathVariable String username) {
+		return userService.deleteUser(username);
+	}
 }

@@ -134,4 +134,15 @@ public class UserServiceImpl implements UserService {
 		return teamMapper.entitiesToDtos(userTeams);
 	}
 
+	@Override
+	public BasicUserDto deleteUser(String username) {
+		Optional<User> optionalUser = userRepository.findByCredentialsUsernameAndActiveTrue(username);
+		if(optionalUser.isEmpty()) {
+			throw new BadRequestException("No active use with given username");
+		}
+		User userToDelete = optionalUser.get();
+		
+		return null;
+	}
+
 }

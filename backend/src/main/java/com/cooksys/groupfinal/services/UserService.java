@@ -21,4 +21,6 @@ public interface UserService {
 	FullUserDto createUser(UserRequestDto userRequestDto, Long companyId);
 
 	Set<TeamDto> getTeams(Long id);
+
+	BasicUserDto deleteUser(String username);
 }

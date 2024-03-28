@@ -85,4 +85,10 @@ public class TeamServiceImpl implements TeamService {
 		
 		return projectMapper.entitiesToDtos(projects);
 	}
+
+	@Override
+	public Set<TeamDto> getAllTeams() {
+		Set<Team> teams = new HashSet<>(teamRepository.findAll());
+		return teamMapper.entitiesToDtos(teams);
+	}
 }
