@@ -19,7 +19,6 @@
                     <th>Active</th>
                     <th>Admin</th>
                     <th>Status</th>
-                    <th *ngIf="isAdmin">Actions</th> <!-- Column for actions -->
                 </tr>
             </thead>
             <tbody>
@@ -29,16 +28,16 @@
                     <td>{{ user.active ? 'Yes' : 'No' }}</td>
                     <td>{{ user.admin ? 'Yes' : 'No' }}</td>
                     <td>{{ user.status }}</td>
-                    <td *ngIf="isAdmin">
+                    <!-- <td *ngIf="isAdmin">
                         <button *ngIf="isAdmin" (click)="deleteUser(user?.credentials?.username)" class="delete-user-button">Delete</button>
-                    </td>
+                    </td> -->
                 </tr>
             </tbody>
         </table>
     </div>
     <button *ngIf="isAdmin" (click)="toggleOverlay()" class="add-user-button">Add User</button>
     <div *ngIf="!isAdmin">
-        <p class="subheading">You do not have permission to add or remove users</p>
+        <p class="subheading">You do not have permission to add users</p>
     </div>
 </div>
 

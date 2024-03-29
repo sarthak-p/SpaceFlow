@@ -100,3 +100,10 @@ h1 {
 .user-table th {
     border-bottom: 1px solid #5C8374;
 }
+
+.delete-user-button {
+    color: #9EC8B9; 
+    border-radius: 5px;
+    background-color: #005B41;
+    cursor: pointer;
+}

@@ -48,6 +48,7 @@ export class UserRegistryComponent implements OnInit {
   }
 
   fetchUsersByCompanyId(companyId: number) {
+    console.log(this.users);
     this.userService.getUsersByCompanyId(companyId).subscribe(users => {
       console.log(users);
       this.users = users;
@@ -70,6 +71,8 @@ export class UserRegistryComponent implements OnInit {
   }
 
   deleteUser(username: string | undefined): void {
+    console.log(`Attempting to delete user: ${username}`);
+    console.log('Printing username:', this.users);
   if (typeof username !== 'string') {
     console.error('Username is undefined, cannot delete user.');
     return;

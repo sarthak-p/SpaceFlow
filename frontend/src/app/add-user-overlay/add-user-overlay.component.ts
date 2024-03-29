@@ -35,15 +35,13 @@ export class AddUserOverlayComponent {
   onSubmit() {
   this.authService.getSelectedCompanyId().subscribe(companyId => {
     if (companyId) {
-    console.log("isAdmin value before submission:", this.user.isAdmin);
-      console.log("isAdmin type before submission:", typeof this.user.isAdmin);
       const submission = {
         profile: this.user.profile,
         credentials: this.user.credentials,
         isAdmin: this.user.isAdmin
       };
 
-      console.log("Submitting user payload:", submission);
+      //console.log("Submitting user payload:", submission);
       this.userService.addUserToCompany(companyId, submission).subscribe({
         next: (response) => {
           console.log('User added successfully', response);
