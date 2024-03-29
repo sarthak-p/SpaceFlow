@@ -4,6 +4,8 @@
 
 SpaceFlow is a full-stack application designed to enhance workflow efficiency and team collaboration within an organization. By streamlining CRUD (Create, Read, Update, Delete) operations, the application significantly improves the handling and organization of company content. With a focus on empowering admin capabilities and securing sensitive data, this project leverages cutting-edge technologies to facilitate a robust and scalable solution for company management needs.
 
+![Project Overview](images/spaceflow.png)
+
 ### Features
 
 - **Admin Dashboard**: Utilize Angular to provide a powerful interface for admins to oversee company announcements, teams, projects, and perform comprehensive user management.
