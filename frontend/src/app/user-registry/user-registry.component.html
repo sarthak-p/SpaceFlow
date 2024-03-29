@@ -28,9 +28,9 @@
                     <td>{{ user.active ? 'Yes' : 'No' }}</td>
                     <td>{{ user.admin ? 'Yes' : 'No' }}</td>
                     <td>{{ user.status }}</td>
-                    <!-- <td *ngIf="isAdmin">
+                    <td *ngIf="isAdmin">
                         <button *ngIf="isAdmin" (click)="deleteUser(user?.credentials?.username)" class="delete-user-button">Delete</button>
-                    </td> -->
+                    </td>
                 </tr>
             </tbody>
         </table>
