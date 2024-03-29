@@ -51,20 +51,20 @@ Follow these steps to get a local copy up and running for development and testin
 
 1. **Navigate to the backend project folder:**
   ```bash
-  cd backend
+    cd backend
 ```
 
 2. **Use Maven to install dependencies and start the Spring Boot application:**
-```bash
-  mvn clean install
-  mvn spring-boot:run
+  ```bash
+    mvn clean install
+    mvn spring-boot:run
 ```
 
 ### Frontend Setup
 
 1. **Navigate to the frontend project folder:**
   ```bash
-  cd frontend
+    cd frontend
   ```
 
 2. **Use Maven to install dependencies and start the Spring Boot application:**
@@ -75,7 +75,7 @@ Follow these steps to get a local copy up and running for development and testin
 
 3. Open http://localhost:4200/ in your browser to view the Angular application.
  
-
+<!---
 ## ERD
 
 ![Final ERD](https://user-images.githubusercontent.com/32781877/206259951-fe81a650-1d90-4c28-ae7a-571f649269d9.png)
@@ -83,6 +83,7 @@ Follow these steps to get a local copy up and running for development and testin
 ## Wireframe
 
 [Figma Wireframe Link](https://www.figma.com/file/huwXGJxW6BCIbk4p2QcZG2/Final-Prototype?node-id=0%3A1&t=BnbL9FVyQYeS41FC-1)
+--->
 
 ## Contributing
 
