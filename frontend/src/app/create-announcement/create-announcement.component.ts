@@ -49,5 +49,6 @@ export class CreateAnnouncementComponent {
   onSubmit() {
     console.log("SUBMIT");
     this.announcementService.createAnnouncement(this.currentCompanyId, this.currentUserName, this.title, this.description);
+    this.router.navigate(['/home']);
   }
 }
