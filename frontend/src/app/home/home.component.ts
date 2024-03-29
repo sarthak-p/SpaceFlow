@@ -14,6 +14,7 @@ export class HomeComponent {
   selectedCompanyId?: number | null;
   announcements: Announcement[] = [];
   companyId: number = 6;
+  admin: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private announcementService: AnnouncementService) {
     
@@ -33,6 +34,7 @@ export class HomeComponent {
   }
 
   ngOnInit() {
+    this.admin = this.authService.isAdmin();  
     this.authService.getSelectedCompanyId().subscribe(id => this.selectedCompanyId = id);
     this.fetchAnnouncementsByCompanyId();
   }

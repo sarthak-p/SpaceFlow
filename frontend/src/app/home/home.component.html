@@ -1,9 +1,9 @@
 <body>
   <div class="navbar">
     <a [routerLink]="['/']">Home</a>
-    <a [routerLink]="['/select-company']">Company</a>
+    <a *ngIf="admin" [routerLink]="['/select-company']">Company</a>
     <a [routerLink]="['/teams']">Teams</a>
-    <a [routerLink]="['/user-registry']">Users</a>
+    <a *ngIf="admin" [routerLink]="['/user-registry']">Users</a>
     <a [routerLink]="['/login']" (click)="logout()">Logout</a>
   </div>
 
@@ -11,7 +11,7 @@
     <h1 class="text-center">Home</h1>
 
     <h2>Announcements</h2>
-    <button routerLink="/create-announcement">Create Announcement</button>
+    <button *ngIf="admin" routerLink="/create-announcement">Create Announcement</button>
 
     <div class="announcement-container" *ngFor="let announcement of announcements">
       <div class="announcement">
