@@ -34,10 +34,8 @@ export class TeamsComponent implements OnInit {
       this.admin = this.authService.isAdmin(); 
       
       if (!this.admin) {
-        // If not an admin, fetch teams by the user's associated company ID
         this.fetchTeamsByCompanyId();
       } else {
-        // If an admin, fetch all teams or teams based on a specific criterion
         this.fetchAllTeams();
       }
     });

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CreateAnnouncementComponent {
 
-  currentUserName: string = "pinky"; // This should be updated by a global app variable on init
+  currentUserName: string = "willsusername"; // This should be updated by a global app variable on init
   currentCompanyId: number = 99; // This should be updated by the dropdown menu
   title: string = "title";
   description: string = "description";

@@ -11,16 +11,21 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   announcements: Announcement[] = [];
+  selectedCompanyId?: number;
+  admin: boolean = false;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private announcementService: AnnouncementService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.admin = this.authService.isAdmin();
+    
     this.authService.getSelectedCompanyId().subscribe((companyId) => {
-      if (companyId) {
+      if (companyId !== null) {
+        this.selectedCompanyId = companyId;
         this.fetchAnnouncementsByCompanyId(companyId);
       } else {
         console.error('Company ID is missing');
