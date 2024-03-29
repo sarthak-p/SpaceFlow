@@ -13,14 +13,12 @@ This project is a full-stack application designed to enhance workflow efficiency
 - **Scalable Database Architecture**: Enhance data consistency and application scalability with PostgreSQL by adopting strategic schema design and indexing strategies.
 - **Intuitive User Interface**: Create a seamless user experience with a clean and efficient UI, making it easy for users to navigate and perform tasks within the application.
 
-### Environment
+### Built With
 
-- **Java & Spring Boot**: For building a secure and scalable backend.
-- **TypeScript & Angular**: To create a dynamic and responsive front-end experience.
-- **PostgreSQL**: For a robust and efficient database.
-- **Git**: For version control.
-- **VSCode**: Recommended IDE for development.
-- **npm & Maven**: For managing dependencies.
+- Java & Spring Boot - For building a secure and scalable backend.
+- TypeScript & Angular - To create a dynamic and responsive front-end experience.
+- PostgreSQL - For a robust and efficient database.
+- npm & Maven - For managing dependencies.
 
 ## Getting Started
 
