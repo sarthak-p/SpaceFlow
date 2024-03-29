@@ -10,7 +10,7 @@
     <h1 class="text-center">Teams</h1>
 
     <div class="button-container">
-        <button routerLink="/create-team">Create a team</button>
+        <button *ngIf="admin" routerLink="/create-team">Create a team</button>
     </div>
 
      <div class="team-container" *ngFor="let team of teams">

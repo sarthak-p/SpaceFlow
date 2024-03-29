@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
 export class ProjectsComponent {
 
   projects: Project[] = [];
-  
+  admin: boolean = false;
 
   teamId: string = "";
 
@@ -50,6 +50,7 @@ export class ProjectsComponent {
   }
 
   ngOnInit(): void {
+    this.admin = this.authService.isAdmin();  
     this.route.params.subscribe(params => {
       this.teamId = params['teamId'];
     });

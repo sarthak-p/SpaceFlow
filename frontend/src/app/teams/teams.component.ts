@@ -29,6 +29,7 @@ export class TeamsComponent {
 
   ngOnInit(): void {
     console.log("TEAMS INIT")
+    this.admin = this.authService.isAdmin(); 
     if (this.admin === false) {
       this.fetchTeamsByUserId();
     }
