@@ -53,7 +53,7 @@ Follow these steps to get a local copy up and running for development and testin
 ```
 
 2. **Use Maven to install dependencies and start the Spring Boot application:**
-```bash
+  ```bash
   mvn clean install
   mvn spring-boot:run
 ```
