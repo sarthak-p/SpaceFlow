@@ -10,7 +10,7 @@
 
         <div class="form-entry">
           <label for="message">Select Company</label><br>
-          <select [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" (change)="onDropdownChange(selectedOption)">
+          <select #dropdown class="announcement-input title-input" [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" (change)="onDropdownChange(selectedOption)">
             <option *ngFor="let company of companies" [ngValue]="company">{{ company.name }}</option>
         </select>
         </div>
