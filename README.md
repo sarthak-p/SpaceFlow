@@ -62,13 +62,13 @@ Follow these steps to get a local copy up and running for development and testin
 
 1. **Navigate to the frontend project folder:**
   ```bash
-  cd frontend
+    cd frontend
   ```
 
 2. **Use Maven to install dependencies and start the Spring Boot application:**
 ```bash
-    npm install
-    ng serve
+npm install
+ng serve
 ```
 
 3. Open http://localhost:4200/ in your browser to view the Angular application.
