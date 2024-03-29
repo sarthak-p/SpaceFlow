@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AnnouncementService } from '../announcement.service';
 import { Announcement } from '../announcement.model';
-import { AuthService } from '../auth.service'; 
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,39 +9,39 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  
-  selectedCompanyId?: number | null;
+export class HomeComponent implements OnInit {
   announcements: Announcement[] = [];
-  companyId: number = 6;
 
-  constructor(private authService: AuthService, private router: Router, private announcementService: AnnouncementService) {
-    
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private announcementService: AnnouncementService
+  ) {}
+
+  ngOnInit(): void {
+    this.authService.getSelectedCompanyId().subscribe((companyId) => {
+      if (companyId) {
+        this.fetchAnnouncementsByCompanyId(companyId);
+      } else {
+        console.error('Company ID is missing');
+      }
+    });
   }
 
-  fetchAnnouncementsByCompanyId(): void {
-    this.announcementService.getAnnouncementsByCompanyId(this.companyId).subscribe( // placeholder id here
+  fetchAnnouncementsByCompanyId(companyId: number): void {
+    this.announcementService.getAnnouncementsByCompanyId(companyId).subscribe(
       (announcements: Announcement[]) => {
         this.announcements = announcements;
-        console.log("LOGGING ANNOUNCEMENTS: ");
-        console.log(announcements);
+        console.log('LOGGING ANNOUNCEMENTS:', announcements);
       },
       (error: any) => {
-          console.error('Error fetching announcements from company:', error);
+        console.error('Error fetching announcements from company:', error);
       }
     );
   }
 
-  ngOnInit() {
-    this.authService.getSelectedCompanyId().subscribe(id => this.selectedCompanyId = id);
-    this.fetchAnnouncementsByCompanyId();
-  }
-
-  logout() {
+  logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
-
-
-
 }
